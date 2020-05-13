@@ -1,10 +1,11 @@
 import React from 'react'
 import "./style.css"
+import { Link } from "react-router-dom";
 
 export default function UserForm() {
     return (
         <div className = "UserForm">
-            <label class="label is-large">Sign Up:</label>
+            <label className="label is-large">Sign Up:</label>
         <div className="field">
   <label className="label">First Name</label>
   <div className="control">
@@ -13,9 +14,16 @@ export default function UserForm() {
 </div>
 
 <div className="field">
-  <label className="label">First Name</label>
+  <label className="label">Last Name</label>
   <div className="control">
     <input className="input" type="text" placeholder="Smith"/>
+  </div>
+</div>
+
+<div className="field">
+  <label className="label">UserName</label>
+  <div className="control">
+    <input className="input" type="text" placeholder="Create a Username"/>
   </div>
 </div>
 
@@ -48,7 +56,7 @@ export default function UserForm() {
 
 <div className="field is-grouped">
   <div className="control">
-    <button className="button is-link">Submit</button>
+    <button className="button is-link"><Link to ='/profile'>Submit</Link></button>
   </div>
   <div className="control">
     <button className="button is-link is-light">Cancel</button>
