@@ -42,7 +42,7 @@ export default function index() {
             
             <button className="button is-link is-outlined"><Link to ='/newpost'>Look For Students</Link></button>
 
-            <button className="button is-danger is-outlined"><Link to ='/post'>Look For Teachers</Link></button>
+            <button className="button is-danger is-outlined"><Link to ='/newTeacherPost'>Look For Teachers</Link></button>
             
 
 

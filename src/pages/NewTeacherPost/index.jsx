@@ -6,11 +6,14 @@ import { Link } from "react-router-dom";
 
 
 
-export default function NewStudentPost() {
+export default function NewTeacherPost() {
     
         const [userState, setUserState] = useState({
-            level: "",
-            post: ""
+        skills: "",
+        levels: "",
+        about: "",
+        picture: ""
+
             
         });
         const history = useHistory();
@@ -26,11 +29,13 @@ export default function NewStudentPost() {
         
         const handleFormSubmit = event => {
           event.preventDefault();
-          API.createStudentPost(userState).then(newUser => {
+          API.createTeacherPost(userState).then(newUser => {
               console.log(newUser)
               setUserState({
-                level: "",
-                post: ""
+                  skills: "",
+                  levels: "",
+                  about: "",
+                  picture: ""
               })
               
               history.push("/profile");
@@ -41,18 +46,32 @@ export default function NewStudentPost() {
         
             return (
                 <div className = "UserForm">
-                    <label className="label is-large">Post your Add as a Student:</label>
+                    <label className="label is-large">Post your Add as a Teacher:</label>
                 <div className="field">
-          <label className="label">Skill Level</label>
+          <label className="label">Skills</label>
           <div className="control">
-            <input className="input" type="text" onChange={handleInputChange} name="level" value={userState.level} placeholder="1 to 10"/>
+            <input className="input" type="text" onChange={handleInputChange} name="skills" value={userState.skills} placeholder="1 to 10"/>
           </div>
         </div>
         
         <div className="field">
-          <label className="label">Post</label>
+          <label className="label">Levels</label>
           <div className="control">
-            <input className="input" type="text" onChange={handleInputChange} name="post" value={userState.post} placeholder="Javascript"/>
+            <input className="input" type="text" onChange={handleInputChange} name="levels" value={userState.levels} placeholder="Javascript"/>
+          </div>
+        </div>
+
+        <div className="field">
+          <label className="label">About</label>
+          <div className="control">
+            <input className="input" type="text" onChange={handleInputChange} name="about" value={userState.about} placeholder="Javascript"/>
+          </div>
+        </div>
+
+        <div className="field">
+          <label className="label">picture</label>
+          <div className="control">
+            <input className="input" type="text" onChange={handleInputChange} name="picture" value={userState.picture} placeholder="Javascript"/>
           </div>
         </div>
         

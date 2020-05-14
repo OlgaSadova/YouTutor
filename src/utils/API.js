@@ -9,8 +9,11 @@ const API = {
     createUser:function(userData){
         return axios.post(`${BASE_URL}/userSignup`,userData,{withCredentials:true})
     },
-    createTeacher:function(userData){
+    createStudentPost:function(userData){
         return axios.post(`${BASE_URL}/posts`,userData,{withCredentials:true})
+    },
+    createTeacherPost:function(userData){
+        return axios.post(`${BASE_URL}/signup/teacher`,userData,{withCredentials:true})
     },
 
 }
