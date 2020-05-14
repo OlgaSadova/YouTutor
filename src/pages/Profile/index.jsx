@@ -2,6 +2,9 @@ import React from 'react'
 import ProfileCard from "../../components/ProfileCard"
 import "./style.css"
 
+import { Link } from "react-router-dom";
+
+
 
 
 export default function index() {
@@ -25,7 +28,7 @@ export default function index() {
         text: "I know html very well but the way handlebars work has eluded me for decades!!"
     }
 
-    const techerPost = {
+    const teacherPost = {
         subject: ["javascript", "html", "css"],
         text: "I have studied javascript extensively for millennia"
     }
@@ -33,14 +36,17 @@ export default function index() {
     return (
 
 
-        <div class = "ProfilePage">
+        <div className = "ProfilePage">
 
             <ProfileCard mockProfile= {mockProfile}/>
-            <button className="button is-link is-outlined">Look For Students</button>
-            <button className="button is-danger is-outlined">Look For Teachers</button>
+            
+            <button className="button is-link is-outlined"><Link to ='/newpost'>Look For Students</Link></button>
+
+            <button className="button is-danger is-outlined"><Link to ='/newTeacherPost'>Look For Teachers</Link></button>
+            
 
 
-            <table class="table">
+            <table className="table">
                 
   <thead>
     <tr>
@@ -60,7 +66,8 @@ export default function index() {
   </tbody>
 </table>
 
-            
+
         </div>
+           
     )
 }
