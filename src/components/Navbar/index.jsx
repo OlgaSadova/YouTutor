@@ -50,7 +50,7 @@ export default function Navbar() {
 
     </div>
 
-    <div className="navbar-end">
+     <div className="navbar-end">
       <div className="navbar-item">
         <div className="buttons">
           <Link className="button is-primary" to ='/signup'>
@@ -64,7 +64,7 @@ export default function Navbar() {
           </a>
         </div>
       </div>
-    </div>
+    </div> 
   </div>
 </nav>
     )
