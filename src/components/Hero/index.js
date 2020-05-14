@@ -2,13 +2,13 @@ import React from 'react'
 
 export default function Hero() {
     return (
-        <section class="hero is-warning">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
+        <section className="hero is-warning">
+  <div className="hero-body">
+    <div className="container">
+      <h1 className="title">
         Welcome to our Tutor App
       </h1>
-      <h2 class="subtitle">
+      <h2 className="subtitle">
         Let's get some schooling done
       </h2>
     </div>

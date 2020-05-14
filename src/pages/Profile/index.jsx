@@ -1,7 +1,10 @@
 import React from 'react'
 import ProfileCard from "../../components/ProfileCard"
 import "./style.css"
-import Table from "../../components/Table"
+
+import { Link } from "react-router-dom";
+
+
 
 
 export default function index() {
@@ -31,12 +34,41 @@ export default function index() {
     }
 
     return (
-   
-        <div class = "ProfilePage">
-        <ProfileCard mockProfile= {mockProfile}/> 
-            <button className="btn" className="button is-link is-outlined">Look For Students</button>
-            <button className="btn" className="button is-danger is-outlined">Look For Teachers</button>
-            <Table/>  
+
+
+
+        <div className = "ProfilePage">
+
+            <ProfileCard mockProfile= {mockProfile}/>
+            
+            <button className="button is-link is-outlined"><Link to ='/post'>Look For Students</Link></button>
+
+            <button className="button is-danger is-outlined"><Link to ='/post'>Look For Teachers</Link></button>
+            
+
+
+            <table className="table">
+                
+  <thead>
+    <tr>
+      
+      <th>Your Posts as a Student</th>
+      
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+    
+      <th>{studentPost.title}</th>
+      
+    </tr>
+    
+  </tbody>
+</table>
+
+            
+
         </div>
            
     )
