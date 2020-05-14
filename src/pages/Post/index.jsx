@@ -11,10 +11,10 @@ export default function Post() {
 </div>
 </div>
 
-<div class="field">
-  <label class="label">Message</label>
-  <div class="control">
-    <textarea class="textarea" placeholder="Textarea"></textarea>
+<div className="field">
+  <label className="label">Message</label>
+  <div className="control">
+    <textarea className="textarea" placeholder="Textarea"></textarea>
   </div>
 </div>
 

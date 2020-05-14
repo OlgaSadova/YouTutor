@@ -40,7 +40,7 @@ export default function index() {
 
             <ProfileCard mockProfile= {mockProfile}/>
             
-            <button className="button is-link is-outlined"><Link to ='/post'>Look For Students</Link></button>
+            <button className="button is-link is-outlined"><Link to ='/newpost'>Look For Students</Link></button>
 
             <button className="button is-danger is-outlined"><Link to ='/post'>Look For Teachers</Link></button>
             
