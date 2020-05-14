@@ -8,7 +8,10 @@ const API = {
     },
     createUser:function(userData){
         return axios.post(`${BASE_URL}/userSignup`,userData,{withCredentials:true})
-    }
+    },
+    createTeacher:function(userData){
+        return axios.post(`${BASE_URL}/posts`,userData,{withCredentials:true})
+    },
 
 }
 export default API
