@@ -1,7 +1,9 @@
 import React from 'react'
 import ProfileCard from "../../components/ProfileCard"
 import "./style.css"
+
 import { Link } from "react-router-dom";
+
 
 
 
@@ -26,12 +28,13 @@ export default function index() {
         text: "I know html very well but the way handlebars work has eluded me for decades!!"
     }
 
-    const techerPost = {
+    const teacherPost = {
         subject: ["javascript", "html", "css"],
         text: "I have studied javascript extensively for millennia"
     }
 
     return (
+
 
 
         <div className = "ProfilePage">
@@ -65,6 +68,8 @@ export default function index() {
 </table>
 
             
+
         </div>
+           
     )
 }
