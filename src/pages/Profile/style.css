@@ -1,3 +1,15 @@
-.ProfilePage{
-    /* display: inline-block; */
+ /* .ProfilePage{
+    display: flex;
+ } */
+
+h1{
+    text-align: center;
+}
+.btn{
+    align-items: center;
+    margin-inline-start: 15cm;
+    text-align: center;
+}
+h3{
+    text-align: center;
 }

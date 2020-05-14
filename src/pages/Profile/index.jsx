@@ -1,8 +1,12 @@
 import React from 'react'
 import ProfileCard from "../../components/ProfileCard"
 import "./style.css"
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 
+=======
+import Table from "../../components/Table"
+>>>>>>> development
 
 
 export default function index() {
@@ -26,12 +30,13 @@ export default function index() {
         text: "I know html very well but the way handlebars work has eluded me for decades!!"
     }
 
-    const techerPost = {
+    const teacherPost = {
         subject: ["javascript", "html", "css"],
         text: "I have studied javascript extensively for millennia"
     }
 
     return (
+<<<<<<< HEAD
 
 
         <div className = "ProfilePage">
@@ -65,6 +70,15 @@ export default function index() {
 </table>
 
             
+=======
+   
+        <div class = "ProfilePage">
+        <ProfileCard mockProfile= {mockProfile}/> 
+            <button className="btn" className="button is-link is-outlined">Look For Students</button>
+            <button className="btn" className="button is-danger is-outlined">Look For Teachers</button>
+            <Table/>  
+>>>>>>> development
         </div>
+           
     )
 }
