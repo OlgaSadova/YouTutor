@@ -5,6 +5,7 @@ import API from "../../utils/API"
 
 export default function UserForm() {
 
+
   const [userState, setUserState] = useState({
     first_name: "",
     last_name: "",
@@ -91,14 +92,16 @@ const handleFormSubmit = event => {
 
 
 
-<div className="field">
-  <div className="control">
-    <label className="checkbox">
-      <input type="checkbox"/>
+
+      <div className="field">
+        <div className="control">
+          <label className="checkbox">
+            <input type="checkbox" />
       I agree to the <a href="#">terms and conditions</a>
-    </label>
-  </div>
-</div>
+          </label>
+        </div>
+      </div>
+
 
 
 
@@ -113,6 +116,7 @@ const handleFormSubmit = event => {
   </div>
 </div>
 
-</div>
-    )
+
+    </div>
+  )
 }
