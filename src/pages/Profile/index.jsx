@@ -1,6 +1,7 @@
 import React from 'react'
 import ProfileCard from "../../components/ProfileCard"
 import "./style.css"
+import { Link } from "react-router-dom";
 
 
 
@@ -33,14 +34,17 @@ export default function index() {
     return (
 
 
-        <div class = "ProfilePage">
+        <div className = "ProfilePage">
 
             <ProfileCard mockProfile= {mockProfile}/>
-            <button className="button is-link is-outlined">Look For Students</button>
-            <button className="button is-danger is-outlined">Look For Teachers</button>
+            
+            <button className="button is-link is-outlined"><Link to ='/post'>Look For Students</Link></button>
+
+            <button className="button is-danger is-outlined"><Link to ='/post'>Look For Teachers</Link></button>
+            
 
 
-            <table class="table">
+            <table className="table">
                 
   <thead>
     <tr>
