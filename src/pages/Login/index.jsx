@@ -25,8 +25,8 @@ const handleFormSubmit = event=>{
   
   API.login(loginState).then(res=>{
       console.log(res.data);
-      if(res.data.user){
-          props.submitHandler(res.data.user)
+      if(res.data){
+          props.submitHandler(res.data)
           history.push("/profile");
       } else {
           props.submitHandler(false)

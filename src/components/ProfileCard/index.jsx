@@ -16,13 +16,13 @@ export default function ProfileCard(props) {
     <div className="media">
       
       <div className="media-content">
-    <p className="title is-4">{props.mockProfile.name} {props.mockProfile.last}</p>
-        <p className="subtitle is-6">{props.mockProfile.email}</p>
+    <p className="title is-4">{props.userdata.first_name} {props.userdata.last_name}</p>
+        <p className="subtitle is-6">{props.userdata.email}</p>
       </div>
     </div>
 
     <div className="content">
-    {props.mockProfile.text} <a>{props.mockProfile.email}</a>.
+     <a>{props.userdata.email}</a>.
       <a href="#">#css</a> <a href="#">#responsive</a>
       <br/>
       <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
