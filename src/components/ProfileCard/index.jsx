@@ -5,6 +5,7 @@ export default function ProfileCard(props) {
     console.log(props);
     
     return (
+      
         <div className="card">
   <div className="card-image">
     <figure className="image is-4by3">
@@ -24,7 +25,7 @@ export default function ProfileCard(props) {
     {props.mockProfile.text} <a>{props.mockProfile.email}</a>.
       <a href="#">#css</a> <a href="#">#responsive</a>
       <br/>
-      <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
     </div>
   </div>
 </div>
