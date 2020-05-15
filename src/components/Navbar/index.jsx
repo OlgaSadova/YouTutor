@@ -59,9 +59,9 @@ export default function Navbar() {
           
             
           </Link>
-          <a className="button is-light">
+          <Link className="button is-light" to ='/login'>
             Log in
-          </a>
+          </Link>
         </div>
       </div>
     </div> 

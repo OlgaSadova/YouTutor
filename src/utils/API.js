@@ -4,7 +4,7 @@ import axios from "axios";
 const BASE_URL = "http://localhost:8080"
 const API = {
     login:function(userData){
-        return axios.get(`${BASE_URL}/login`,userData)
+        return axios.post(`${BASE_URL}/login`,userData,{withCredentials:true})
     },
     createUser:function(userData){
         return axios.post(`${BASE_URL}/userSignup`,userData,{withCredentials:true})
@@ -15,6 +15,9 @@ const API = {
     createTeacherPost:function(userData){
         return axios.post(`${BASE_URL}/signup/teacher`,userData,{withCredentials:true})
     },
+    readSessions:function(){
+        return axios.get(`${BASE_URL}/readsessions`,{withCredentials:true})
+    }
 
 }
 export default API

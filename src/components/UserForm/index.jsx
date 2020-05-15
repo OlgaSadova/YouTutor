@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./style.css"
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API"
+import { Link } from "react-router-dom";
 
 export default function UserForm() {
 
@@ -112,7 +113,7 @@ const handleFormSubmit = event => {
     </button>
   </div>
   <div className="control">
-    <button className="button is-link is-light">Cancel</button>
+    <button className="button is-link is-light"><Link to ='/'>Cancel</Link></button>
   </div>
 </div>
 
