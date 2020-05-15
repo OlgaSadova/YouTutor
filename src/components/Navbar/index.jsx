@@ -1,7 +1,20 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import API from '../../utils/API';
+import {useHistory} from "react-router-dom"
 
-export default function Navbar() {
+export default function Navbar(props) {
+
+  const history = useHistory();
+
+  const handleLogoutClick = event=>{
+    API.logout().then(res=>{
+        props.logoutHandle();
+       history.push('/')
+    })
+}
+
+
     return (
         <nav className="navbar" role="navigation" aria-label="main navigation">
   {/* <div className="navbar-brand">
@@ -53,15 +66,13 @@ export default function Navbar() {
      <div className="navbar-end">
       <div className="navbar-item">
         <div className="buttons">
-          <Link className="button is-primary" to ='/signup'>
+        {!props.currentUser? <Link className="button is-primary" to ='/signup'><strong>Sign up</strong></Link> :""}
           
-              <strong>Sign up</strong>
-          
-            
-          </Link>
-          <Link className="button is-light" to ='/login'>
-            Log in
-          </Link>
+        {!props.currentUser? <Link className="button is-light" to ='/login'>Log In</Link> :""}
+
+        {props.currentUser? <button className="button is-light" onClick = {handleLogoutClick}>Log Out</button> :""}
+        
+      
         </div>
       </div>
     </div> 

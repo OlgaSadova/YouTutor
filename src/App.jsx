@@ -12,7 +12,6 @@ import API from './utils/API';
 
 function App() {
 
-
 const [currentUser,setCurrentUser] = useState(false);
 
   useEffect(()=>{
@@ -25,12 +24,15 @@ const [currentUser,setCurrentUser] = useState(false);
     })
   },[])
 
+  
+
   const loginSubmitHandler= userData=>{
     setCurrentUser(userData)
   }
 
   const logoutHandle = ()=>{
     setCurrentUser(false)
+    
   }
 
 

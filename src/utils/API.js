@@ -17,6 +17,9 @@ const API = {
     },
     readSessions:function(){
         return axios.get(`${BASE_URL}/readsessions`,{withCredentials:true})
+    },
+    logout:function(){
+        return axios.get(`${BASE_URL}/logout`,{withCredentials:true})
     }
 
 }
