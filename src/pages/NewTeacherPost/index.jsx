@@ -6,7 +6,10 @@ import { Link } from "react-router-dom";
 
 
 
-export default function NewTeacherPost() {
+export default function NewTeacherPost(props) {
+
+  console.log(props);
+  
     
         const [userState, setUserState] = useState({
         skills: "",

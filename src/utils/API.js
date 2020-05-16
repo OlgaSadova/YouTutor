@@ -4,10 +4,13 @@ import axios from "axios";
 const BASE_URL = "http://localhost:8080"
 const API = {
     login:function(userData){
-        return axios.get(`${BASE_URL}/login`,userData)
+        return axios.post(`${BASE_URL}/login`,userData,{withCredentials:true})
     },
     createUser:function(userData){
         return axios.post(`${BASE_URL}/userSignup`,userData,{withCredentials:true})
+    },
+    getUserbyId:function(id){
+        return axios.get(`${BASE_URL}/api/players/${id}`)
     },
     createStudentPost:function(userData){
         return axios.post(`${BASE_URL}/posts`,userData,{withCredentials:true})
@@ -15,9 +18,18 @@ const API = {
     createTeacherPost:function(userData){
         return axios.post(`${BASE_URL}/signup/teacher`,userData,{withCredentials:true})
     },
+
     getSkillResult:function(search){
         return axios.get(`${BASE_URL}/api/searchresult`, search)
     },
+=======
+    readSessions:function(){
+        return axios.get(`${BASE_URL}/readsessions`,{withCredentials:true})
+    },
+    logout:function(){
+        return axios.get(`${BASE_URL}/logout`,{withCredentials:true})
+    }
+
 
 }
 export default API
