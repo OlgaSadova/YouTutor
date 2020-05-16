@@ -21,7 +21,7 @@ const handleInputChange = event=>{
 
 const handleFormSubmit = event=>{
   event.preventDefault();
-  console.log(loginState);
+  // console.log(loginState);
   
   API.login(loginState).then(res=>{
       console.log(res.data);
@@ -45,7 +45,7 @@ const handleSessionBtnClick = event=>{
 
     return (
         <div className = "UserForm">
-        <label className="label is-large">Write your Post:</label>
+        <label className="label is-large">Credentials:</label>
     <div className="field">
 <label className="label">Email</label>
 <div className="control">
