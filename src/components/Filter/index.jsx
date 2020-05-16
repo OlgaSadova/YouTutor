@@ -104,7 +104,7 @@ function FilterSkills() {
             </div>
       </div>
 
-      <div class="card-content border">
+      <div className="card-content border">
       <div id="skill-holder" className="row">
           {skillState.map(skill => (
             <div className="row" key={skill}>
