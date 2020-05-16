@@ -15,6 +15,8 @@ function App() {
 const [currentUser,setCurrentUser] = useState(false);
 
   useEffect(()=>{
+     console.log("Running UseEffect");
+     
     API.readSessions().then(res=>{
       if(res.data.user){
         setCurrentUser(res.data.user)
@@ -48,7 +50,7 @@ const [currentUser,setCurrentUser] = useState(false);
       </Route>
 
       <Route exact path="/signup">
-         <SignUp/>
+         <SignUp submitHandler={loginSubmitHandler}/>
       </Route>
 
       <Route exact path="/profile">
@@ -64,7 +66,7 @@ const [currentUser,setCurrentUser] = useState(false);
       </Route>
 
       <Route exact path="/newTeacherPost">
-         <NewTeacherPost/>
+         <NewTeacherPost currentUser={currentUser}/>
       </Route>
 
       </Switch>

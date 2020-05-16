@@ -5,7 +5,7 @@ export default function ProfileCard(props) {
     console.log(props);
     
     return (
-      
+      <div>
         <div className="card">
   <div className="card-image">
     <figure className="image is-4by3">
@@ -15,19 +15,65 @@ export default function ProfileCard(props) {
   <div className="card-content">
     <div className="media">
       
-      <div className="media-content">
+      <div >
     <p className="title is-4">{props.userdata.first_name} {props.userdata.last_name}</p>
-        <p className="subtitle is-6">{props.userdata.email}</p>
+        <p className="title is-4">{props.userdata.email}</p>
+        <p className="title is-4">{props.userdata.zipcode}</p>
+
       </div>
     </div>
 
-    <div className="content">
-     <a>{props.userdata.email}</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a>
-      <br/>
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-    </div>
   </div>
 </div>
+
+
+{props.userdata.Studentpost ?
+<div className="card">
+<div className="card-image">
+  
+</div>
+<div className="card-content">
+  <div className="media">
+    
+    <div >
+    <p className="title is-4">Your Student Post</p>
+
+  <p className="title is-4">Level: {props.userdata.Studentpost.level} </p>
+      <p className="title is-4">Topics{props.userdata.Studentpost.post}</p>
+      <p className="title is-4">Posted On:{props.userdata.Studentpost.createdAt.substring(0,10)}</p>
+
+    </div>
+  </div>
+
+  
+</div>
+</div>
+:""}
+
+{props.userdata.Teacher ?
+<div className="card">
+<div className="card-image">
+  
+</div>
+<div className="card-content">
+  <div className="media">
+    
+    <div >
+    <p className="title is-4">Your Teacher Post</p>
+
+  <p className="title is-4">Level: {props.userdata.Teacher.levels} </p>
+      <p className="title is-4">Topics: {props.userdata.Teacher.skills}</p>
+      <p className="title is-4">About: {props.userdata.Teacher.about}</p>
+      <p className="title is-4">Posted On:{props.userdata.Teacher.createdAt.substring(0,10)}</p>
+
+    </div>
+  </div>
+
+  
+</div>
+</div>
+:""}
+</div>
+
     )
 }
