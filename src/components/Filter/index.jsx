@@ -54,11 +54,14 @@ function FilterSkills(props) {
     }
 
     // props.getSkills(chosenSkillState)
+
   }
 
   const handleInput = event => {
     event.preventDefault()
     setSearchState(event.target.value.toLowerCase());
+
+
   }
 
   const handleSkillClick2 = event => {
@@ -71,6 +74,7 @@ function FilterSkills(props) {
     }
 
     // props.getSkills(chosenSkillState)
+
   }
 
   const handleSearch = event => {
@@ -80,6 +84,7 @@ function FilterSkills(props) {
     } else{
       alert("didnt choose skills") //we need to change the alert to nice html
     }
+
   }
 
   return (
