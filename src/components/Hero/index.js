@@ -1,5 +1,5 @@
 import React from 'react'
-import FilterSkills from '../../components/Filter';
+// import FilterSkills from '../../components/Filter';
 
 
 export default function Hero() {
@@ -20,7 +20,7 @@ export default function Hero() {
       
     </section>
     
-      <FilterSkills />
+      {/* <FilterSkills /> */}
 
     </div>
 

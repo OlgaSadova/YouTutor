@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API"
 import "./style.css"
 
-function FilterSkills() {
+function FilterSkills(props) {
   const [allSkillsState, setAllSkillsState] = useState([])
   const [skillState, setWorkingSkillsState] = useState([])
   const [chosenSkillState, setChosenSkillState] = useState([])
@@ -52,6 +52,8 @@ function FilterSkills() {
         skillState.splice(i, 1)
       }
     }
+
+    // props.getSkills(chosenSkillState)
   }
 
   const handleInput = event => {
@@ -67,6 +69,8 @@ function FilterSkills() {
         chosenSkillState.splice(i, 1)
       }
     }
+
+    // props.getSkills(chosenSkillState)
   }
 
   const handleSearch = event => {

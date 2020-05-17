@@ -3,6 +3,8 @@ import "./style.css"
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API"
 import { Link } from "react-router-dom";
+import FilterSkills from '../../components/Filter';
+
 
 
 
@@ -28,6 +30,14 @@ export default function NewTeacherPost(props) {
               [name]: value
           })
         };
+
+        // const getSkills = chosen => {
+        //   let chosenskills = chosen;
+        //   setUserState({
+            
+        //     skills: chosenskills
+        // })
+        // }
         
         
         const handleFormSubmit = event => {
@@ -49,13 +59,14 @@ export default function NewTeacherPost(props) {
         
             return (
                 <div className = "UserForm">
+                  <FilterSkills  />
                     <label className="label is-large">Post your Add as a Teacher:</label>
-                <div className="field">
+                {/* <div className="field">
           <label className="label">Skills</label>
           <div className="control">
             <input className="input" type="text" onChange={handleInputChange} name="skills" value={userState.skills} placeholder="1 to 10"/>
           </div>
-        </div>
+        </div> */}
         
         <div className="field">
           <label className="label">Levels</label>
@@ -70,6 +81,8 @@ export default function NewTeacherPost(props) {
             <input className="input" type="text" onChange={handleInputChange} name="about" value={userState.about} placeholder="Javascript"/>
           </div>
         </div>
+
+        
 
         <div className="field">
           <label className="label">picture</label>
@@ -89,6 +102,8 @@ export default function NewTeacherPost(props) {
             <button className="button is-link is-light"><Link to ='/profile'>Cancel</Link></button>
           </div>
         </div>
+
+        
         
         </div>
     )

@@ -24,9 +24,9 @@ export default function Profile(props) {
             <ProfileCard userdata= {User}/>
             {/* <TeacherCard teacherdata= {teacherAdd}/> */}
             
-            <button className="button is-link is-outlined"><Link to ='/newTeacherPost'>Look For Students</Link></button>
+            <button className="button is-link is-outlined"><Link to ='/newTeacherPost'>This is where Teachers go to create an add and Look For Students</Link></button>
 
-            <button className="button is-danger is-outlined"><Link to ='/newpost'>Look For Teachers</Link></button>
+            <button className="button is-danger is-outlined"><Link to ='/newpost'>This is where students go if they need a Teacher</Link></button>
             
 
         </div>
