@@ -1,11 +1,11 @@
 .card {
-
- width: 30%;
- float: left;
-display: block;
-width: 300px;
-
-margin: 10px;
-
- 
+    width: 30%;
+    float: left;
+    display: block;
+    width: 300px;
+    box-shadow: 0 8px 16px 16px 0 rgba(0, 0, 0, 0.2);
+    margin: 10px;
 }
+.card:hover {
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+  }
