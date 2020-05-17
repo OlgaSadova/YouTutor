@@ -1,8 +1,9 @@
 import React from 'react'
+import "./style.css"
 
 export default function Hero() {
     return (
-        <section className="hero is-warning">
+        <section className="hero is-primary">
   <div className="hero-body">
     <div className="container">
       <h1 className="title">

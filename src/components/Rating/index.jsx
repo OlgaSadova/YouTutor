@@ -28,6 +28,7 @@ export default function MakeApp() {
           starCount={5}
           value={rating}
           onStarClick={this.onStarClick.bind(this)}
+          console
         />
       </div>
     );
