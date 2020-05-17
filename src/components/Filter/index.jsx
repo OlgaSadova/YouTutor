@@ -6,15 +6,13 @@ function FilterSkills(props) {
   const [allSkillsState, setAllSkillsState] = useState([])
   const [skillState, setWorkingSkillsState] = useState([])
   const [chosenSkillState, setChosenSkillState] = useState([])
-  const [chosenSkillArrsState, setChosenSkillArrsState] = useState([])
   const [searchState, setSearchState] = useState("");
-  //const [sortedState, setSortedState] = useState();
+  const [saveState, setSaveState] = useState([]);
 
   //all skills
   useEffect(() => {
     API.getSkillResult().then(res => {
       const skillsArr = res.data.map(skill => skill.skill)
-      console.log(skillsArr)
       setAllSkillsState(skillsArr)
       setWorkingSkillsState(skillsArr)
     }).catch(err => {
@@ -35,43 +33,16 @@ function FilterSkills(props) {
     setWorkingSkillsState(filteredSkills);
   }, [searchState, allSkillsState])
 
-
-    // //filtered skills
-    // useEffect(() => {
-    //   chosenSkillsState.filter(skill => {
-    //     if (skill.skill.toLowerCase().includes(searchState)) {
-    //       return true
-    //     } else {
-    //       return false
-    //     }
-    //   })
-    // }, [chosenSkillState])
-    
-  /*
+  // save user search state to db
   useEffect(() => {
-    const NewskillState = [...skillState];
-    if (NewskillState.length > 0) {
-      if (NewskillState[0].name.first > NewskillState[NewskillState.length - 1].name.first) {
-        NewskillState.sort((a, b) => a.name.first > b.name.first ? 1 : -1)
-      } else {
-        NewskillState.sort((a, b) => a.name.first < b.name.first ? 1 : -1)
-      }
-      setWorkingSkillsState(NewskillState);
-    }
-  }, [sortedState])
-  */
-  const handleInput = event => {
-    event.preventDefault()
+    API.saveUserSkills(saveState).then(result => {
+      console.log(result)
+    }).catch(err => {
+      console.log(err);
+    })
+  }, [saveState])
 
-    setSearchState(event.target.value.toLowerCase());
-  }
-
-
-  // const hundleSort = event => {
-  //   event.preventDefault()
-  //   setSortedState(...skillState);
-  // }
-
+  
 
   const handleSkillClick = event => {
     event.preventDefault()
@@ -83,6 +54,14 @@ function FilterSkills(props) {
     }
 
     // props.getSkills(chosenSkillState)
+
+  }
+
+  const handleInput = event => {
+    event.preventDefault()
+    setSearchState(event.target.value.toLowerCase());
+
+
   }
 
   const handleSkillClick2 = event => {
@@ -95,6 +74,17 @@ function FilterSkills(props) {
     }
 
     // props.getSkills(chosenSkillState)
+
+  }
+
+  const handleSearch = event => {
+    event.preventDefault()
+    if(chosenSkillState){
+      setSaveState(chosenSkillState)
+    } else{
+      alert("didnt choose skills") //we need to change the alert to nice html
+    }
+
   }
 
   return (
@@ -125,7 +115,7 @@ function FilterSkills(props) {
               <button onClick={handleSkillClick2} className="button is-primary is-rounded is-small" value={skill}>{skill} | - </button>
             </div>
           ))}
-          <button>search</button>
+          <button onClick={handleSearch} className="button is-rounded is-small"> SEARCH </button>
     </div>
 
         </div>
@@ -136,3 +126,39 @@ function FilterSkills(props) {
 }
 export default FilterSkills;
 
+
+
+
+// SORT
+
+
+
+    // //filtered skills
+    // useEffect(() => {
+    //   chosenSkillsState.filter(skill => {
+    //     if (skill.skill.toLowerCase().includes(searchState)) {
+    //       return true
+    //     } else {
+    //       return false
+    //     }
+    //   })
+    // }, [chosenSkillState])
+    
+  /*
+  useEffect(() => {
+    const NewskillState = [...skillState];
+    if (NewskillState.length > 0) {
+      if (NewskillState[0].name.first > NewskillState[NewskillState.length - 1].name.first) {
+        NewskillState.sort((a, b) => a.name.first > b.name.first ? 1 : -1)
+      } else {
+        NewskillState.sort((a, b) => a.name.first < b.name.first ? 1 : -1)
+      }
+      setWorkingSkillsState(NewskillState);
+    }
+  }, [sortedState])
+  */
+
+  // const hundleSort = event => {
+  //   event.preventDefault()
+  //   setSortedState(...skillState);
+  // }
