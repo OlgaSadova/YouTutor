@@ -1,9 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from "react-router-dom";
 import API from '../../utils/API';
 import {useHistory} from "react-router-dom"
 
+
+
 export default function Navbar(props) {
+  const [visible, setVisible] = useState(true);
+  
+  
+  function hideMe(){ 
+    console.log(visible)
+    setVisible(false);  
+  }
+  let styles = {display: 'inline'};
+  if(!visible) styles.display = "none"
+  
+ 
+
 
   const history = useHistory();
 
@@ -13,6 +27,7 @@ export default function Navbar(props) {
        history.push('/')
     })
 }
+
 
 
     return (
@@ -65,8 +80,8 @@ export default function Navbar(props) {
 
      <div className="navbar-end">
       <div className="navbar-item">
-        <div className="buttons">
-        {!props.currentUser? <Link className="button is-primary" to ='/signup'><strong>Sign up</strong></Link> :""}
+        <div className="buttons" >
+        {!props.currentUser? <Link className="button is-primary" style={styles}  onClick={hideMe} to ='/signup'><strong>Sign up</strong></Link> :""}
           
         {!props.currentUser? <Link className="button is-light" to ='/login'>Log In</Link> :""}
 
@@ -79,4 +94,4 @@ export default function Navbar(props) {
   </div>
 </nav>
     )
-}
+    }
