@@ -15,6 +15,15 @@ const API = {
     createTeacherPost:function(userData){
         return axios.post(`${BASE_URL}/signup/teacher`,userData,{withCredentials:true})
     },
+    getSkillResult:function(){
+        return axios.get(`${BASE_URL}/api/searchresult`)
+    },
+    saveUserSkills:function(userData){
+        return axios.post(`${BASE_URL}/api/userskills`, userData)
+    },
+    saveTeacherSkills:function(userData){
+        return axios.post(`${BASE_URL}/api/teacherkills`, userData)
+    },
 
 }
 export default API
