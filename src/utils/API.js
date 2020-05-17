@@ -18,11 +18,9 @@ const API = {
     createTeacherPost:function(userData){
         return axios.post(`${BASE_URL}/signup/teacher`,userData,{withCredentials:true})
     },
-
     getSkillResult:function(search){
         return axios.get(`${BASE_URL}/api/searchresult`, search)
     },
-=======
     readSessions:function(){
         return axios.get(`${BASE_URL}/readsessions`,{withCredentials:true})
     },

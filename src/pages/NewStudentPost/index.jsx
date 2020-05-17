@@ -3,6 +3,7 @@ import "./style.css"
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API"
 import { Link } from "react-router-dom";
+import FilterSkills from '../../components/Filter';
 
 
 
@@ -41,7 +42,19 @@ export default function NewStudentPost() {
         
             return (
                 <div className = "UserForm">
-                    <label className="label is-large">Post your Add as a Student:</label>
+                  <label className="label is-large">Post your Add as a Student:</label>
+                  <FilterSkills />
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                    
                 <div className="field">
           <label className="label">Skill Level</label>
           <div className="control">
