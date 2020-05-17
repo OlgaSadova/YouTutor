@@ -31,7 +31,6 @@ const API = {
     getSkillResult:function(search){
         return axios.get(`${BASE_URL}/api/searchresult`, search)
     },
-=======
     readSessions:function(){
         return axios.get(`${BASE_URL}/readsessions`,{withCredentials:true})
     },
