@@ -20,6 +20,7 @@
 //   render() {
 //     const { rating } = this.state;
     
+
 //     return (                
 //       <div>
 //         <h2>Rating from state: {rating}</h2>
@@ -33,7 +34,7 @@
 //     );
 //   }
 //  }
- 
+
 
 
 
