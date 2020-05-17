@@ -1,10 +1,13 @@
 import React from 'react'
 import UserForm from '../../components/UserForm';
 
-export default function SignUp() {
+export default function SignUp(props) {
+
+    // console.log(props);
+    const submitHandler = props.submitHandler;
     return (
         <div>
-            <UserForm/>
+            <UserForm submitHandler={submitHandler}/>
         </div>
     )
 }
