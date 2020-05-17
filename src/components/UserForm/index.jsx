@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import "./style.css"
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API"
+import { Link } from "react-router-dom";
 
-export default function UserForm() {
+export default function UserForm(props) {
 
+// console.log(props);
 
   const [userState, setUserState] = useState({
     first_name: "",
@@ -28,18 +30,27 @@ const handleInputChange = event => {
 
 const handleFormSubmit = event => {
   event.preventDefault();
-  API.createUser(userState).then(newUser => {
-      console.log(newUser)
-      setUserState({
-        first_name: "",
-        last_name: "",
-        // username: "",
-        email: "",
-        password: "",
-        zipcode: ""
-      })
+  API.createUser(userState)
+  .then(res => {
+      console.log(res.data);
+
+      if(res.data){
+          props.submitHandler(res.data)
+          setUserState({
+            first_name: "",
+            last_name: "",
+            // username: "",
+            email: "",
+            password: "",
+            zipcode: ""
+          })
+          history.push("/profile");
+      } 
+      else {
+          props.submitHandler(false)
+          history.push("/signup");
+      }
       
-      history.push("/profile");
   })
 
 }
@@ -112,7 +123,7 @@ const handleFormSubmit = event => {
     </button>
   </div>
   <div className="control">
-    <button className="button is-link is-light">Cancel</button>
+    <button className="button is-link is-light"><Link to ='/'>Cancel</Link></button>
   </div>
 </div>
 
