@@ -9,7 +9,7 @@ export default function ProfileCard(props) {
         <div className="card">
   <div className="card-image">
     <figure className="image is-4by3">
-      <img src="http://placekitten.com/200/300" alt="Placeholder image"/>
+      <img src={props.userdata.picture} alt="Placeholder image"/>
     </figure>
   </div>
   <div className="card-content">
