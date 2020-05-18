@@ -57,7 +57,7 @@ const handleSessionBtnClick = event=>{
 <div className="field">
   <label className="label">Password</label>
   <div className="control">
-    <input className="input" type="text" placeholder="password" name = 'password' onChange = {handleInputChange} value = {loginState.password}/>
+     <input type="password" className="input" placeholder="password" name = 'password' onChange = {handleInputChange} value = {loginState.password}/>
   </div>
 </div>
 

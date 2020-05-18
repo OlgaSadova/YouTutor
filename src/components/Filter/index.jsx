@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API"
 import "./style.css"
 
+
+const logoX = "https://avatars2.githubusercontent.com/u/56105414?s=400&u=e52d89d5d9701146a87f29bb59c3d47fd362b66b&v=4"
+
 function FilterSkills(props) {
   const [allSkillsState, setAllSkillsState] = useState([])
   const [skillState, setWorkingSkillsState] = useState([])
@@ -22,7 +25,7 @@ function FilterSkills(props) {
 
   //filter the skills
   useEffect(() => {
-    const tempState = [...allSkillsState];
+    const tempState = [...skillState];
     const filteredSkills = tempState.filter(skill => {
       if (skill.toLowerCase().includes(searchState)) {
         return true
@@ -31,7 +34,7 @@ function FilterSkills(props) {
       }
     })
     setWorkingSkillsState(filteredSkills);
-  }, [searchState, allSkillsState])
+  }, [searchState])
 
   // save user search state to db
   // useEffect(() => {
@@ -102,17 +105,17 @@ function FilterSkills(props) {
       <div id="skill-holder" className="row">
           {skillState.map(skill => (
             <div className="row" key={skill}>
-              <button onClick={handleSkillClick} className="button is-rounded is-small " value={skill}>{skill} | + </button>
+              <button onClick={handleSkillClick} className="button is-rounded is-small " value={skill}>{skill} </button>
             </div>
           ))}
         </div>
-        </div>
+        </div> 
         
         <div className="content border">
     
         {chosenSkillState.map(skill => (
             <div className="row" key={skill}>
-              <button onClick={handleSkillClick2} className="button is-primary is-rounded is-small" value={skill}>{skill} | - </button>
+              <button onClick={handleSkillClick2} className="button is-primary is-rounded is-small" value={skill}>{skill} <span><img src={logoX} alt="logo" height="15" width="15"/> </span></button>
             </div>
           ))}
           {/* <button onClick={handleSearch} className="button is-rounded is-small"> SEARCH </button> */}
