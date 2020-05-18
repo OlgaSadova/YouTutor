@@ -22,11 +22,15 @@ const API = {
     getSkillResult:function(){
         return axios.get(`${BASE_URL}/api/searchresult`)
     },
-    saveUserSkills:function(userData){
-        return axios.post(`${BASE_URL}/api/userskills`, userData)
+    saveStudentSkills:function(userData){
+        return axios.post(`${BASE_URL}/api/userskills`, userData,{withCredentials:true})
+    },
+    saveTeacherSkills:function(userData){
+        return axios.post(`${BASE_URL}/skillsteacher`, userData,{withCredentials:true})
     },
     getSkillResult:function(search){
-        return axios.get(`${BASE_URL}/api/searchresult`, search)
+        return axios.get(`${BASE_URL}/api/searchresult`, search,{withCredentials:true})
+
     },
     readSessions:function(){
         return axios.get(`${BASE_URL}/readsessions`,{withCredentials:true})
