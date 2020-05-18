@@ -1,5 +1,6 @@
 import React from 'react';
-// import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
+
+
 
 export default function ImageUpload() {
 
@@ -9,10 +10,10 @@ export default function ImageUpload() {
             
 
 
-            this.props.postPhoto({user_id: this.props.currentUser.id,
-            caption:'',
-        url: resultEvent.info.secure_url})
-        .then(this.props.history.push('/profile'))
+        //     this.props.postPhoto({user_id: this.props.currentUser.id,
+        //     caption:'',
+        // url: resultEvent.info.secure_url})
+        // .then(this.props.history.push('/profile'))
         }
     }
 
@@ -25,6 +26,7 @@ export default function ImageUpload() {
             uploadPreset:"ylmdvnpt",
         },
             (error, result) => { checkUploadResult(result) })
+            
         
     
     return (

@@ -32,8 +32,9 @@ export default function Navbar(props) {
 
     return (
         <nav className="navbar" role="navigation" aria-label="main navigation">
-  {/* <div className="navbar-brand">
-    <a className="navbar-item" href="https://bulma.io">
+  <div className="navbar-brand">
+    <a className="navbar-item" href="/">
+      
       <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"/>
     </a>
 
@@ -42,7 +43,7 @@ export default function Navbar(props) {
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
-  </div> */}
+  </div>
 
   <div id="navbarBasicExample" className="navbar-menu">
     <div className="navbar-start">
