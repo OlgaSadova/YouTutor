@@ -34,13 +34,13 @@ function FilterSkills(props) {
   }, [searchState, allSkillsState])
 
   // save user search state to db
-  useEffect(() => {
-    API.saveUserSkills(saveState).then(result => {
-      console.log(result)
-    }).catch(err => {
-      console.log(err);
-    })
-  }, [saveState])
+  // useEffect(() => {
+  //   API.saveUserSkills(saveState).then(result => {
+  //     console.log(result)
+  //   }).catch(err => {
+  //     console.log(err);
+  //   })
+  // }, [saveState])
 
   
 
@@ -53,7 +53,7 @@ function FilterSkills(props) {
       }
     }
 
-    // props.getSkills(chosenSkillState)
+    props.getSkills(chosenSkillState)
 
   }
 
@@ -73,19 +73,19 @@ function FilterSkills(props) {
       }
     }
 
-    // props.getSkills(chosenSkillState)
+    props.getSkills(chosenSkillState)
 
   }
 
-  const handleSearch = event => {
-    event.preventDefault()
-    if(chosenSkillState){
-      setSaveState(chosenSkillState)
-    } else{
-      alert("didnt choose skills") //we need to change the alert to nice html
-    }
+  // const handleSearch = event => {
+  //   event.preventDefault()
+  //   if(chosenSkillState){
+  //     setSaveState(chosenSkillState)
+  //   } else{
+  //     alert("didnt choose skills") //we need to change the alert to nice html
+  //   }
 
-  }
+  // }
 
   return (
     <div className="filter card">
@@ -115,7 +115,7 @@ function FilterSkills(props) {
               <button onClick={handleSkillClick2} className="button is-primary is-rounded is-small" value={skill}>{skill} | - </button>
             </div>
           ))}
-          <button onClick={handleSearch} className="button is-rounded is-small"> SEARCH </button>
+          {/* <button onClick={handleSearch} className="button is-rounded is-small"> SEARCH </button> */}
     </div>
 
         </div>

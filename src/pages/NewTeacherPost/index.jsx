@@ -10,14 +10,14 @@ import FilterSkills from '../../components/Filter';
 
 export default function NewTeacherPost(props) {
 
-  console.log(props);
+  
   
     
         const [userState, setUserState] = useState({
-        skills: "",
-        levels: "",
-        about: "",
-        picture: ""
+        skills: [],
+        // levels: "",
+        about: " ",
+        picture: " "
 
             
         });
@@ -31,25 +31,42 @@ export default function NewTeacherPost(props) {
           })
         };
 
-        // const getSkills = chosen => {
-        //   let chosenskills = chosen;
-        //   setUserState({
+        const getSkills = chosen => {
+          let chosenskills = chosen;
+          setUserState({
             
-        //     skills: chosenskills
-        // })
-        // }
+            skills: chosenskills
+        })
+        
+        
+        }
         
         
         const handleFormSubmit = event => {
           event.preventDefault();
+          console.log("inside the handleformsubmit");
+          console.log(userState);
+          
+          
           API.createTeacherPost(userState).then(newUser => {
-              console.log(newUser)
+              console.log(userState)
               setUserState({
-                  skills: "",
-                  levels: "",
+                  // levels: "",
                   about: "",
                   picture: ""
               })
+
+                API.saveTeacherSkills(userState.skills)
+                .then(result => {
+                  console.log(result)
+                })
+                .catch(err => {
+                  console.log(err);
+                })
+              
+
+                
+              
               
               history.push("/profile");
           })
@@ -58,8 +75,10 @@ export default function NewTeacherPost(props) {
         
         
             return (
+              <div>
+              <FilterSkills getSkills={getSkills} />
                 <div className = "UserForm">
-                  <FilterSkills  />
+                  
                     <label className="label is-large">Post your Add as a Teacher:</label>
                 {/* <div className="field">
           <label className="label">Skills</label>
@@ -68,17 +87,17 @@ export default function NewTeacherPost(props) {
           </div>
         </div> */}
         
-        <div className="field">
+        {/* <div className="field">
           <label className="label">Levels</label>
           <div className="control">
             <input className="input" type="text" onChange={handleInputChange} name="levels" value={userState.levels} placeholder="Javascript"/>
           </div>
-        </div>
+        </div> */}
 
         <div className="field">
           <label className="label">About</label>
           <div className="control">
-            <input className="input" type="text" onChange={handleInputChange} name="about" value={userState.about} placeholder="Javascript"/>
+            <input className="input" type="text" onChange={handleInputChange} name="about" value={userState.about} placeholder="About"/>
           </div>
         </div>
 
@@ -105,6 +124,8 @@ export default function NewTeacherPost(props) {
 
         
         
+        </div>
+
         </div>
     )
 }

@@ -10,6 +10,7 @@ import FilterSkills from '../../components/Filter';
 export default function NewStudentPost() {
     
         const [userState, setUserState] = useState({
+          skills: [],
             level: "",
             post: ""
             
@@ -33,9 +34,27 @@ export default function NewStudentPost() {
                 level: "",
                 post: ""
               })
+
+              API.saveStudentSkills(userState.skills)
+                .then(result => {
+                  console.log(result)
+                })
+                .catch(err => {
+                  console.log(err);
+                })
               
               history.push("/profile");
           })
+        
+        }
+
+        const getSkills = chosen => {
+          let chosenskills = chosen;
+          setUserState({
+            
+            skills: chosenskills
+        })
+        
         
         }
         
@@ -43,7 +62,7 @@ export default function NewStudentPost() {
             return (
                 <div className = "UserForm">
                   <label className="label is-large">Post your Add as a Student:</label>
-                  <FilterSkills />
+                  <FilterSkills getSkills={getSkills}/>
                   <br/>
                   <br/>
                   <br/>

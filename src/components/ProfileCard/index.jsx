@@ -64,8 +64,7 @@ export default function ProfileCard(props) {
   <p className="title is-4">Level: {props.userdata.Teacher.levels} </p>
       <p className="title is-4">Topics: {props.userdata.Teacher.skills}</p>
       <p className="title is-4">About: {props.userdata.Teacher.about}</p>
-      <p className="title is-4">Posted On:{props.userdata.Teacher.createdAt.substring(0,10)}</p>
-
+      <p className="title is-4">Skills:{props.userdata.Teacher.createdAt.substring(0,10)}</p>
     </div>
   </div>
 

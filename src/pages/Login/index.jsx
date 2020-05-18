@@ -25,11 +25,12 @@ const handleFormSubmit = event=>{
   
   API.login(loginState).then(res=>{
       console.log(res.data);
-      if(res.data){
+      if(res.data.id){
           props.submitHandler(res.data)
           history.push("/profile");
       } else {
           props.submitHandler(false)
+          history.push("/login");
       }
 
   })
