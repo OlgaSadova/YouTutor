@@ -11,10 +11,9 @@ export default function UserForm(props) {
   const [userState, setUserState] = useState({
     first_name: "",
     last_name: "",
-    // username: "",
     email: "",
     password: "",
-    zipcode: ""
+    picture: ""
 
 });
 const history = useHistory();
@@ -39,10 +38,9 @@ const handleFormSubmit = event => {
           setUserState({
             first_name: "",
             last_name: "",
-            // username: "",
             email: "",
             password: "",
-            zipcode: ""
+            picture: ""
           })
           history.push("/profile");
       } 
@@ -80,12 +78,12 @@ const handleFormSubmit = event => {
   </div>
 </div> */}
 
-<div className="field">
+{/* <div className="field">
   <label className="label">ZipCode</label>
   <div className="control">
     <input className="input" type="text" onChange={handleInputChange} name="zipcode" value={userState.zipcode} placeholder="98101"/>
   </div>
-</div>
+</div> */}
 
 <div className="field">
   <label className="label">Email</label>
@@ -108,14 +106,14 @@ const handleFormSubmit = event => {
 
 
 
-      <div className="field">
+      {/* <div className="field">
         <div className="control">
-          <label className="checkbox">
+          <label className="checkbox"> 
             <input type="checkbox" />
       I agree to the <a href="#">terms and conditions</a>
-          </label>
+           </label>
         </div>
-      </div>
+      </div> */}
 
 
 
