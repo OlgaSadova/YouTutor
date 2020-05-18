@@ -1,5 +1,7 @@
 import React from 'react'
 import UserForm from '../../components/UserForm';
+import ImageUpload from '../../components/ImageWidget';
+import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 
 export default function SignUp(props) {
 
@@ -8,6 +10,7 @@ export default function SignUp(props) {
     return (
         <div>
             <UserForm submitHandler={submitHandler}/>
+            <ImageUpload />
         </div>
     )
 }

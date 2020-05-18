@@ -8,7 +8,7 @@ import "./style.css"
 export default function Hero() {
   return (
     <div>
-    <section className="hero is-warning">
+    <section className="hero is-primary is-bold">
       <div className="hero-body">
         <div className="container">
           <h1 className="title">
