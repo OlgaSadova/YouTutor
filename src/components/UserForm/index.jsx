@@ -97,7 +97,7 @@ const handleFormSubmit = event => {
 <div className="field">
   <label className="label">Password</label>
   <div className="control">
-    <input className="input" type="text" onChange={handleInputChange} name="password" value={userState. password} placeholder="Password"/>
+    <input className="input" type="password" onChange={handleInputChange} name="password" value={userState. password} placeholder="Password"/>
   </div>
 </div>
 
