@@ -10,7 +10,7 @@ export default function SignUp(props) {
     return (
         <div>
             <UserForm submitHandler={submitHandler}/>
-            <ImageUpload />
+            
         </div>
     )
 }

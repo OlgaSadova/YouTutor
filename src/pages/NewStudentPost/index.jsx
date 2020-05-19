@@ -11,8 +11,7 @@ export default function NewStudentPost() {
     
         const [userState, setUserState] = useState({
           skills: [],
-            level: "",
-            post: ""
+            about: ""
             
         });
         const history = useHistory();
@@ -28,11 +27,12 @@ export default function NewStudentPost() {
         
         const handleFormSubmit = event => {
           event.preventDefault();
+
           API.createStudentPost(userState).then(newUser => {
               console.log(newUser)
               setUserState({
-                level: "",
-                post: ""
+                
+                about: ""
               })
 
               API.saveStudentSkills(userState.skills)
@@ -74,17 +74,11 @@ export default function NewStudentPost() {
                   <br/>
                   <br/>
                     
-                <div className="field">
-          <label className="label">Skill Level</label>
-          <div className="control">
-            <input className="input" type="text" onChange={handleInputChange} name="level" value={userState.level} placeholder="1 to 10"/>
-          </div>
-        </div>
         
         <div className="field">
-          <label className="label">Post</label>
+          <label className="label">About</label>
           <div className="control">
-            <input className="input" type="text" onChange={handleInputChange} name="post" value={userState.post} placeholder="Javascript"/>
+            <input className="input" type="text" onChange={handleInputChange} name="about" value={userState.about} placeholder="About"/>
           </div>
         </div>
         
