@@ -16,8 +16,9 @@ export default function NewTeacherPost(props) {
         const [userState, setUserState] = useState({
         skills: [],
         // levels: "",
-        about: " ",
-        picture: " "
+        about: "",
+        YearsofExperience:""
+        
 
             
         });
@@ -53,7 +54,7 @@ export default function NewTeacherPost(props) {
               setUserState({
                   // levels: "",
                   about: "",
-                  picture: ""
+                  YearsofExperience: ""
               })
 
                 API.saveTeacherSkills(userState.skills)
@@ -104,9 +105,9 @@ export default function NewTeacherPost(props) {
         
 
         <div className="field">
-          <label className="label">picture</label>
+          <label className="label">YearsofExperience</label>
           <div className="control">
-            <input className="input" type="text" onChange={handleInputChange} name="picture" value={userState.picture} placeholder="Javascript"/>
+            <input className="input" type="text" onChange={handleInputChange} name="YearsofExperience" value={userState.YearsofExperience} placeholder="YearsofExperience"/>
           </div>
         </div>
         

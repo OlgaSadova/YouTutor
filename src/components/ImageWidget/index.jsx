@@ -2,14 +2,15 @@ import React from 'react';
 
 
 
-export default function ImageUpload() {
+export default function ImageUpload(props) {
 
   const checkUploadResult = (resultEvent) => {
       console.log(resultEvent)
         if(resultEvent.event === "success"){
             
 
-
+            console.log( resultEvent.info.secure_url)
+            props.getPicture(resultEvent.info.secure_url);
         //     this.props.postPhoto({user_id: this.props.currentUser.id,
         //     caption:'',
         // url: resultEvent.info.secure_url})

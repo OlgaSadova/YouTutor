@@ -1,15 +1,40 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import "./style.css"
+import API from "../../utils/API"
 
 export default function ProfileCard(props) {
-    console.log(props);
+    console.log(props.userdata.id);
+
+    const [teacherSkillsArray, setTeacherArray] = useState([]);
     
+    useEffect(() => {
+    // if(props.userdata.Teacher){
+    console.log(props.userdata.Teacher);
+    
+      API.getTeacherSkills(props.userdata.id)
+                .then(res => {
+
+                  const skillsArr = res.data.map(element => element.skill)
+
+
+                  setTeacherArray(skillsArr)
+
+                  console.log(skillsArr)
+                  console.log(teacherSkillsArray)
+                  
+              })
+              .catch(err => {
+                console.log(err);
+              })
+
+            // }
+          }, [])
     return (
       <div>
         <div className="card">
   <div className="card-image">
     <figure className="image is-4by3">
-      <img src="http://placekitten.com/200/300" alt="Placeholder image"/>
+      <img src={props.userdata.picture} alt="Placeholder image"/>
     </figure>
   </div>
   <div className="card-content">
@@ -61,10 +86,13 @@ export default function ProfileCard(props) {
     <div >
     <p className="title is-4">Your Teacher Post</p>
 
-  <p className="title is-4">Level: {props.userdata.Teacher.levels} </p>
-      <p className="title is-4">Topics: {props.userdata.Teacher.skills}</p>
       <p className="title is-4">About: {props.userdata.Teacher.about}</p>
-      <p className="title is-4">Skills:{props.userdata.Teacher.createdAt.substring(0,10)}</p>
+
+      <p className="title is-4">Skills:{teacherSkillsArray[0]}</p>
+      <ul>
+        {teacherSkillsArray.map(element => <li> {element}</li>  )}
+      </ul>
+
     </div>
   </div>
 
@@ -75,4 +103,4 @@ export default function ProfileCard(props) {
 </div>
 
     )
-}
+    }

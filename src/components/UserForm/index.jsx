@@ -3,19 +3,31 @@ import "./style.css"
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API"
 import { Link } from "react-router-dom";
+import ImageUpload from '../../components/ImageWidget';
+import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
+
 
 
 export default function UserForm(props) {
 
 // console.log(props);
 
+
+const getPicture = pic => {
+  let Picture = pic;
+
+  setUserState({
+    ...userState,
+    picture: Picture
+})
+}
+
   const [userState, setUserState] = useState({
     first_name: "",
     last_name: "",
-    // username: "",
     email: "",
     password: "",
-    zipcode: ""
+    picture: ""
 
 });
 const history = useHistory();
@@ -31,6 +43,8 @@ const handleInputChange = event => {
 
 const handleFormSubmit = event => {
   event.preventDefault();
+  console.log(userState);
+  
   API.createUser(userState)
   .then(res => {
       console.log(res.data);
@@ -40,10 +54,9 @@ const handleFormSubmit = event => {
           setUserState({
             first_name: "",
             last_name: "",
-            // username: "",
             email: "",
             password: "",
-            zipcode: ""
+            picture: ""
           })
           history.push("/profile");
       } 
@@ -55,6 +68,8 @@ const handleFormSubmit = event => {
   })
 
 }
+
+
 
 
     return (
@@ -81,12 +96,12 @@ const handleFormSubmit = event => {
   </div>
 </div> */}
 
-<div className="field">
+{/* <div className="field">
   <label className="label">ZipCode</label>
   <div className="control">
     <input className="input" type="text" onChange={handleInputChange} name="zipcode" value={userState.zipcode} placeholder="98101"/>
   </div>
-</div>
+</div> */}
 
 <div className="field">
   <label className="label">Email</label>
@@ -105,22 +120,7 @@ const handleFormSubmit = event => {
 
   </div>
 </div>
-
-
-
-
-      <div className="field">
-        <div className="control">
-          <label className="checkbox">
-            <input type="checkbox" />
-      I agree to the <a href="#">terms and conditions</a>
-          </label>
-        </div>
-      </div>
-
-
-
-
+<ImageUpload getPicture= {getPicture}/>
 <div className="field is-grouped">
   <div className="control">
     <button className="button is-link" onClick={handleFormSubmit}>

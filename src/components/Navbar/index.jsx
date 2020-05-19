@@ -11,11 +11,15 @@ export default function Navbar(props) {
   
   function hideMe(){ 
     console.log(visible)
-    setVisible(false);  
+    setVisible(false); 
+     
   }
   let styles = {display: 'inline'};
   if(!visible) styles.display = "none"
-  
+  function showMe(){ 
+    console.log(visible)
+    setVisible(true);  
+  }
  
 
 
@@ -32,18 +36,6 @@ export default function Navbar(props) {
 
     return (
         <nav className="navbar" role="navigation" aria-label="main navigation">
-  <div className="navbar-brand">
-    <a className="navbar-item" href="/">
-      
-      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"/>
-    </a>
-
-    <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
 
   <div id="navbarBasicExample" className="navbar-menu">
     <div className="navbar-start">
@@ -82,11 +74,12 @@ export default function Navbar(props) {
      <div className="navbar-end">
       <div className="navbar-item">
         <div className="buttons" >
-        {!props.currentUser? <Link className="button is-primary" style={styles}  onClick={hideMe} to ='/signup'><strong>Sign up</strong></Link> :""}
+        {/* onClick={hideMe} */}
+        {!props.currentUser? <Link className="button is-primary" style={styles}   to ='/signup'><strong>Sign up</strong></Link> :""}
           
-        {!props.currentUser? <Link className="button is-light" to ='/login'>Log In</Link> :""}
+        {!props.currentUser? <Link className="button is-light" style={styles}  to ='/login'>Log In</Link> :""}
 
-        {props.currentUser? <button className="button is-light" onClick = {handleLogoutClick}>Log Out</button> :""}
+        {props.currentUser? <button className="button is-light"  onClick = {handleLogoutClick}>Log Out</button> :""}
         
       
         </div>
