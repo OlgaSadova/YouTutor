@@ -19,7 +19,7 @@ export default function ProfileCard(props) {
 
                   setTeacherArray(skillsArr)
 
-                  console.log(skillsArr)
+                  console.log("skillsArrsssssssss",skillsArr)
                   console.log(teacherSkillsArray)
                   
               })
