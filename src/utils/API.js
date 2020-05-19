@@ -18,19 +18,18 @@ const API = {
     createTeacherPost:function(userData){
         return axios.post(`${BASE_URL}/signup/teacher`,userData,{withCredentials:true})
     },
-
-    getSkillResult:function(){
-        return axios.get(`${BASE_URL}/api/searchresult`)
-    },
     saveStudentSkills:function(userData){
         return axios.post(`${BASE_URL}/api/userskills`, userData,{withCredentials:true})
     },
     saveTeacherSkills:function(userData){
         return axios.post(`${BASE_URL}/skillsteacher`, userData,{withCredentials:true})
     },
+    getTeacherSkills:function(id){
+        return axios.get(`${BASE_URL}/getTeacherSkills/${id}`, {withCredentials:true})
+    },
     getSkillResult:function(search){
         return axios.get(`${BASE_URL}/api/searchresult`, search,{withCredentials:true})
-
+        
     },
     readSessions:function(){
         return axios.get(`${BASE_URL}/readsessions`,{withCredentials:true})
