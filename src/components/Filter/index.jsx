@@ -77,7 +77,7 @@ function FilterSkills(props) {
       }
     }
 
-    props.getSkills(chosenSkillState)
+    props.getSkills(...chosenSkillState, event.target.value)
 
   }
 
@@ -113,10 +113,10 @@ function FilterSkills(props) {
         </div> 
         
         <div className="content border">
-    
+        {/* <span><img src={logoX} alt="logo" height="15" width="15"/> </span> */}
         {chosenSkillState.map(skill => (
             <div className="row" key={skill}>
-              <button onClick={handleSkillClick2} className="button is-primary is-rounded is-small" value={skill}>{skill} <span><img src={logoX} alt="logo" height="15" width="15"/> </span></button>
+              <button onClick={handleSkillClick2} className="button is-primary is-rounded is-small" value={skill}>{skill}</button>
             </div>
           ))}
           {/* <button onClick={handleSearch} className="button is-rounded is-small"> SEARCH </button> */}

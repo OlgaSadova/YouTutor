@@ -7,7 +7,8 @@ import FilterSkills from '../../components/Filter';
 
 
 
-export default function NewStudentPost() {
+export default function NewStudentPost(props) {
+    console.log(props.currentUser.email);
     
         const [userState, setUserState] = useState({
           skills: [],
@@ -15,6 +16,11 @@ export default function NewStudentPost() {
             
         });
         const history = useHistory();
+
+        const loginState = {
+          email:props.currentUser.email
+          
+        }
         
         const handleInputChange = event => {
           console.log(event)
@@ -55,6 +61,13 @@ export default function NewStudentPost() {
                 .catch(err => {
                   console.log(err);
                 })
+
+                  API.login(loginState)
+                  .then(res=>{
+                      console.log(res.data);
+                      props.submitHandler(res.data)
+                  })
+                
               
               history.push("/profile");
           })
@@ -65,10 +78,10 @@ export default function NewStudentPost() {
           console.log(chosen)
           let chosenskills = chosen;
           setUserState({
-            
+            ...userState,
             skills: chosenskills
         })
-        
+        console.log(userState.skills);
         
         }
         
