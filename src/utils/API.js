@@ -18,6 +18,13 @@ const API = {
     createTeacherPost:function(userData){
         return axios.post(`${BASE_URL}/signup/teacher`,userData,{withCredentials:true})
     },
+
+    
+    getSkillResult:function(){
+        return axios.get(`${BASE_URL}/api/searchresult`)
+    },
+
+
     saveStudentSkills:function(userData){
         return axios.post(`${BASE_URL}/api/userskills`, userData,{withCredentials:true})
     },
@@ -40,6 +47,7 @@ const API = {
     getReview: function(teacherData){
         return axios.get(`${BASE_URL}/teacherReview`, teacherData)
     },
+
     saveReview: function(teacherData){
         return axios.post(`${BASE_URL}/teacherReview`, teacherData)
     }
