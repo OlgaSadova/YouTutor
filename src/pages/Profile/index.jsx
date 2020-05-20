@@ -45,11 +45,11 @@ const tutor = tutors[i];
     tutorCards.push(
         //This is where you should use the ACTUAL TeacherCard instead of the code below
         // <TeachCard teach={tutor} />
-    <div>
-        {tutor.name} : <StarRatingComponent name={tutor.id} value={tutor.rating} onStarClick={
-            (nextValue, prevValue, name) => updateTutorRating(nextValue, prevValue, name)
-            } />
-     </div>
+    // <div>
+    //     {tutor.name} : <StarRatingComponent name={tutor.id} value={tutor.rating} onStarClick={
+    //         (nextValue, prevValue, name) => updateTutorRating(nextValue, prevValue, name)
+    //         } />
+    //  </div>
     );
   }
 
@@ -61,13 +61,12 @@ const tutor = tutors[i];
 
 
         <div className = "ProfilePage">
-
+        
             <ProfileCard userdata= {User}/>
             {/* <TeacherCard teacherdata= {teacherAdd}/> */}
+            <button className="button is-link is-outlined"><Link to ='/newTeacherPost'>Look For Student</Link></button>
             
-            <button className="button is-link is-outlined"><Link to ='/newTeacherPost'>This is where Teachers go to create an add and Look For Students</Link></button>
-
-            <button className="button is-danger is-outlined"><Link to ='/newpost'>This is where students go if they need a Teacher</Link></button>
+            <button className="button is-danger is-outlined"><Link to ='/newpost'>Look For Teacher</Link></button>
             
             <div>
                 {tutorCards}

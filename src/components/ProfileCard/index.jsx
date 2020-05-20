@@ -19,8 +19,8 @@ export default function ProfileCard(props) {
 
                   setTeacherArray(skillsArr)
 
-                  console.log("skillsArrsssssssss",skillsArr)
-                  console.log(teacherSkillsArray)
+                 // console.log("skillsArrsssssssss",skillsArr)
+                  //console.log(teacherSkillsArray)
                   
               })
               .catch(err => {
@@ -94,12 +94,15 @@ export default function ProfileCard(props) {
       </ul>
 
     </div>
+   
   </div>
 
   
 </div>
+
 </div>
 :""}
+
 </div>
 
     )

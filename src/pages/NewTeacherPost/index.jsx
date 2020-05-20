@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./style.css"
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API"
@@ -12,18 +12,27 @@ export default function NewTeacherPost(props) {
 
   
   
-    
+        const [teacherSkillState, UseTeacherSkillState] = useState([])
         const [userState, setUserState] = useState({
         skills: [],
         // levels: "",
         about: "",
         YearsofExperience:""
         
-
-            
         });
         const history = useHistory();
         
+
+
+        useEffect(() => {
+          const test = ["1", "2"]//teacherSkillState
+          test.map(skill => {
+         
+        }, [teacherSkillState])
+      })
+
+
+
         const handleInputChange = event => {
           const { name, value } = event.target;
           setUserState({
@@ -46,24 +55,35 @@ export default function NewTeacherPost(props) {
         const handleFormSubmit = event => {
           event.preventDefault();
           console.log("inside the handleformsubmit");
-          console.log(userState);
+       
           
           
           API.createTeacherPost(userState).then(newUser => {
-              console.log(userState)
+            
               setUserState({
                   // levels: "",
                   about: "",
                   YearsofExperience: ""
               })
-
+                //we can delete one of the api and use it as one
                 API.saveTeacherSkills(userState.skills)
                 .then(result => {
-                  console.log(result)
+                
                 })
                 .catch(err => {
                   console.log(err);
                 })
+
+                API.getStudentMatch(userState.skills)
+              .then(newUser => {
+                const test = newUser.data
+                console.log("MATCH RESULT TUDENT SKILLS FOR TEACHERS: ",test)
+                
+                UseTeacherSkillState(test)
+              })
+              .catch(err => {
+                console.log(err);
+              })
               
 
                 
