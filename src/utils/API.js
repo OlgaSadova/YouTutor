@@ -24,9 +24,6 @@ const API = {
     deleteCurrentPost:function(userData){
         return axios.delete(`${BASE_URL}/posts/delete/currentuser`,{withCredentials:true})
     },
-    getSkillResult:function(){
-        return axios.get(`${BASE_URL}/api/searchresult`)
-    },
     deleteStudentSkills:function(){
         return axios.delete(`${BASE_URL}/api/userskillsdelete`,{withCredentials:true})
     },
@@ -60,7 +57,7 @@ const API = {
         return axios.post(`${BASE_URL}/teacherReview`, teacherData)
     },
     getTeacherMatch: function(teacherData){
-        return axios.post(`${BASE_URL}/api/matchskills`, teacherData)
+        return axios.post(`${BASE_URL}/api/matchteacherskills`, teacherData)
     }
 
 

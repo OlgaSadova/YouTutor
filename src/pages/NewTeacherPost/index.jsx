@@ -10,7 +10,7 @@ import FilterSkills from '../../components/Filter';
 
 export default function NewTeacherPost(props) {
 
-  console.log(props);
+  // console.log(props);
   
   
     
