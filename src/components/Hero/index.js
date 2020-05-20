@@ -18,6 +18,7 @@ export default function Hero() {
           <h2 className="subtitle">
             Let's get some schooling done
       </h2>
+  
 
         </div>
       </div>

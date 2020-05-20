@@ -15,11 +15,13 @@ export default function Navbar(props) {
      
   }
   let styles = {display: 'inline'};
+
   if(!visible) styles.display = "none"
   function showMe(){ 
     console.log(visible)
     setVisible(true);  
   }
+
  
 
 
@@ -39,7 +41,7 @@ export default function Navbar(props) {
 
   <div id="navbarBasicExample" className="navbar-menu">
     <div className="navbar-start">
-      <Link className="navbar-item" to ='/'>Home</Link>
+      <Link className="navbar-item" onClick="showMe" to ='/'>Home</Link>
       {/* <Link to ='/'>Home</Link> */}
       {/* </a> */}
 
@@ -77,9 +79,11 @@ export default function Navbar(props) {
         {/* onClick={hideMe} */}
         {!props.currentUser? <Link className="button is-primary" style={styles}   to ='/signup'><strong>Sign up</strong></Link> :""}
           
-        {!props.currentUser? <Link className="button is-light" style={styles}  to ='/login'>Log In</Link> :""}
 
-        {props.currentUser? <button className="button is-light"  onClick = {handleLogoutClick}>Log Out</button> :""}
+        {!props.currentUser? <Link className="button is-light" style={styles}  onClick={hideMe} to ='/login'>Log In</Link> :""}
+
+        {props.currentUser? <button className="button is-light" onClick = {handleLogoutClick} >Log Out</button> :""}
+
         
       
         </div>
