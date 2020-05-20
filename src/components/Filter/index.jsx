@@ -57,7 +57,6 @@ function FilterSkills(props) {
     }
 
     props.getSkills([...chosenSkillState, event.target.value])
-    props.getSkills([...chosenSkillState, event.target.value])
 
 
   }
