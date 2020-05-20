@@ -5,6 +5,30 @@ import API from "../../utils/API"
 export default function ProfileCard(props) {
     console.log(props.userdata.TeacherSkills);
 
+    const [teacherSkillsArray, setTeacherArray] = useState([]);
+    
+    useEffect(() => {
+    // if(props.userdata.Teacher){
+    console.log(props.userdata.Teacher);
+    
+      API.getTeacherSkills(props.userdata.id)
+                .then(res => {
+
+                  const skillsArr = res.data.map(element => element.skill)
+
+
+                  setTeacherArray(skillsArr)
+
+                  console.log("skillsArrsssssssss",skillsArr)
+                  console.log(teacherSkillsArray)
+                  
+              })
+              .catch(err => {
+                console.log(err);
+              })
+
+            // }
+          }, [])
     return (
       <div>
         <div className="card">

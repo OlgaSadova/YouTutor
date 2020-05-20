@@ -7,7 +7,8 @@ import FilterSkills from '../../components/Filter';
 
 
 
-export default function NewStudentPost() {
+export default function NewStudentPost(props) {
+    console.log(props.currentUser.email);
     
         const [userState, setUserState] = useState({
           skills: [],
@@ -15,8 +16,14 @@ export default function NewStudentPost() {
             
         });
         const history = useHistory();
+
+        const loginState = {
+          email:props.currentUser.email
+          
+        }
         
         const handleInputChange = event => {
+          console.log(event)
           const { name, value } = event.target;
           setUserState({
               ...userState,
@@ -35,6 +42,18 @@ export default function NewStudentPost() {
                 about: ""
               })
 
+              API.getTeacherMatch(userState.skills)
+              .then(newUser => {
+                console.log("MATCH RESULT TUDENT SKILLS FOR TEACHERS: ",newUser.data)
+                // setUserState({
+                //   level: "",
+                //   post: ""
+                // })
+              })
+              .catch(err => {
+                console.log(err);
+              })
+
               API.saveStudentSkills(userState.skills)
                 .then(result => {
                   console.log(result)
@@ -42,6 +61,13 @@ export default function NewStudentPost() {
                 .catch(err => {
                   console.log(err);
                 })
+
+                  API.login(loginState)
+                  .then(res=>{
+                      console.log(res.data);
+                      props.submitHandler(res.data)
+                  })
+                
               
               history.push("/profile");
           })
@@ -49,12 +75,13 @@ export default function NewStudentPost() {
         }
 
         const getSkills = chosen => {
+          console.log(chosen)
           let chosenskills = chosen;
           setUserState({
-            
+            ...userState,
             skills: chosenskills
         })
-        
+        console.log(userState.skills);
         
         }
         

@@ -10,7 +10,7 @@ const API = {
         return axios.post(`${BASE_URL}/userSignup`,userData,{withCredentials:true})
     },
     getUserbyId:function(id){
-        return axios.get(`${BASE_URL}/api/players/${id}`)
+        return axios.get(`${BASE_URL}/api/players/${id}`)  // what is players?
     },
     createStudentPost:function(userData){
         return axios.post(`${BASE_URL}/posts`,userData,{withCredentials:true})
@@ -50,6 +50,9 @@ const API = {
 
     saveReview: function(teacherData){
         return axios.post(`${BASE_URL}/teacherReview`, teacherData)
+    },
+    getTeacherMatch: function(teacherData){
+        return axios.post(`${BASE_URL}/api/matchskills`, teacherData)
     }
 
 
