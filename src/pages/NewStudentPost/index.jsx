@@ -8,7 +8,7 @@ import FilterSkills from '../../components/Filter';
 
 
 export default function NewStudentPost(props) {
-    console.log(props.currentUser.email);
+    console.log(props.currentUser);
     
         const [userState, setUserState] = useState({
           skills: [],
@@ -34,43 +34,55 @@ export default function NewStudentPost(props) {
         
         const handleFormSubmit = event => {
           event.preventDefault();
-
-          API.createStudentPost(userState).then(newUser => {
+          
+        API.deleteCurrentPost()
+        .then(result => {
+          //  console.log("PreviousPostDeleted: " + result);
+          API.createStudentPost(userState)
+          .then(newUser => {
               console.log(newUser)
               setUserState({
-                
                 about: ""
               })
-
-              API.getTeacherMatch(userState.skills)
-              .then(newUser => {
-                console.log("MATCH RESULT TUDENT SKILLS FOR TEACHERS: ",newUser.data)
-                // setUserState({
-                //   level: "",
-                //   post: ""
-                // })
-              })
-              .catch(err => {
-                console.log(err);
-              })
-
-              API.saveStudentSkills(userState.skills)
+              API.deleteStudentSkills()
+              .then(result => {
+                // console.log("Skills deleted from current User: " + result);
+                API.saveStudentSkills(userState.skills)
                 .then(result => {
-                  console.log(result)
-                })
-                .catch(err => {
-                  console.log(err);
-                })
-
+                  // console.log("Skills saved to current User: " + result);
                   API.login(loginState)
                   .then(res=>{
                       console.log(res.data);
                       props.submitHandler(res.data)
+                      history.push("/profile");
                   })
-                
-              
-              history.push("/profile");
+                })
+                .catch(err => {
+                  console.log(err);
+                })
+              })
+              .catch(err => {
+                console.log(err);
+              })
+            })
+            .catch(err => {
+              console.log(err);
+            })
           })
+          .catch(err => {
+            console.log(err);
+          })
+
+          
+
+              API.getTeacherMatch(userState.skills)
+              .then(newUser => {
+                console.log("MATCH RESULT TUDENT SKILLS FOR TEACHERS: ",newUser.data)
+                
+              })
+              .catch(err => {
+                console.log(err);
+              })
         
         }
 
