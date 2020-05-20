@@ -10,17 +10,24 @@ import FilterSkills from '../../components/Filter';
 
 export default function NewTeacherPost(props) {
 
+  console.log(props);
   
   
         const [teacherSkillState, UseTeacherSkillState] = useState([])
         const [userState, setUserState] = useState({
         skills: [],
-        // levels: "",
         about: "",
         YearsofExperience:""
-        
+           
         });
+
         const history = useHistory();
+
+
+        const loginState = {
+          email:props.currentUser.email
+          
+        }
         
 
 
@@ -51,69 +58,60 @@ export default function NewTeacherPost(props) {
         
         }
         
-        
+        ///////
         const handleFormSubmit = event => {
           event.preventDefault();
           console.log("inside the handleformsubmit");
-       
-          
-          
-          API.createTeacherPost(userState).then(newUser => {
-            
+          console.log(userState);
+          API.deleteTeacherCurrentPost()
+        .then(result => {
+          //  console.log("PreviousPostDeleted: " + result);
+          API.createTeacherPost(userState)
+          .then(newUser => {
+              console.log(newUser)
               setUserState({
-                  // levels: "",
-                  about: "",
-                  YearsofExperience: ""
+                about: "",
+                YearsofExperience:""
               })
-                //we can delete one of the api and use it as one
+              API.deleteTeacherSkills()
+              .then(result => {
+                console.log("Skills deleted from current User: " + result);
                 API.saveTeacherSkills(userState.skills)
                 .then(result => {
-                
+                  console.log("Skills saved to current User: " + result);
+                  API.login(loginState)
+                  .then(res=>{
+                      console.log(res.data);
+                      props.submitHandler(res.data)
+                      history.push("/profile");
+                  })
                 })
                 .catch(err => {
                   console.log(err);
                 })
-
-                API.getStudentMatch(userState.skills)
-              .then(newUser => {
-                const test = newUser.data
-                console.log("MATCH RESULT TUDENT SKILLS FOR TEACHERS: ",test)
-                
-                UseTeacherSkillState(test)
               })
               .catch(err => {
                 console.log(err);
               })
-              
-
-                
-              
-              
-              history.push("/profile");
+            })
+            .catch(err => {
+              console.log(err);
+            })
           })
-        
+          .catch(err => {
+            console.log(err);
+          })
         }
         
+        ///////
         
-            return (
+        return (
               <div>
               <FilterSkills getSkills={getSkills} />
                 <div className = "UserForm">
                   
                     <label className="label is-large">Post your Add as a Teacher:</label>
-                {/* <div className="field">
-          <label className="label">Skills</label>
-          <div className="control">
-            <input className="input" type="text" onChange={handleInputChange} name="skills" value={userState.skills} placeholder="1 to 10"/>
-          </div>
-        </div> */}
-        
-        {/* <div className="field">
-          <label className="label">Levels</label>
-          <div className="control">
-            <input className="input" type="text" onChange={handleInputChange} name="levels" value={userState.levels} placeholder="Javascript"/>
-          </div>
-        </div> */}
+                
 
         <div className="field">
           <label className="label">About</label>
@@ -148,5 +146,6 @@ export default function NewTeacherPost(props) {
         </div>
 
         </div>
-    )
+        )
 }
+        

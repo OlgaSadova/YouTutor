@@ -18,8 +18,23 @@ const API = {
     createTeacherPost:function(userData){
         return axios.post(`${BASE_URL}/signup/teacher`,userData,{withCredentials:true})
     },
+    deleteTeacherCurrentPost:function(userData){
+        return axios.delete(`${BASE_URL}/posts/deleteTeacher/currentuser`,{withCredentials:true})
+    },
+    deleteCurrentPost:function(userData){
+        return axios.delete(`${BASE_URL}/posts/delete/currentuser`,{withCredentials:true})
+    },
+    getSkillResult:function(){
+        return axios.get(`${BASE_URL}/api/searchresult`)
+    },
+    deleteStudentSkills:function(){
+        return axios.delete(`${BASE_URL}/api/userskillsdelete`,{withCredentials:true})
+    },
     saveStudentSkills:function(userData){
         return axios.post(`${BASE_URL}/api/userskills`, userData,{withCredentials:true})
+    },
+    deleteTeacherSkills:function(){
+        return axios.delete(`${BASE_URL}/api/techerskillsdelete`,{withCredentials:true})
     },
     saveTeacherSkills:function(userData){
         return axios.post(`${BASE_URL}/skillsteacher`, userData,{withCredentials:true})
@@ -40,6 +55,7 @@ const API = {
     getReview: function(teacherData){
         return axios.get(`${BASE_URL}/teacherReview`, teacherData)
     },
+
     saveReview: function(teacherData){
         return axios.post(`${BASE_URL}/teacherReview`, teacherData)
     },

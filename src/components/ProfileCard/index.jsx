@@ -3,7 +3,7 @@ import "./style.css"
 import API from "../../utils/API"
 
 export default function ProfileCard(props) {
-    console.log(props.userdata.id);
+    console.log(props.userdata.TeacherSkills);
 
     const [teacherSkillsArray, setTeacherArray] = useState([]);
     
@@ -43,7 +43,6 @@ export default function ProfileCard(props) {
       <div >
     <p className="title is-4">{props.userdata.first_name} {props.userdata.last_name}</p>
         <p className="title is-4">{props.userdata.email}</p>
-        <p className="title is-4">{props.userdata.zipcode}</p>
 
       </div>
     </div>
@@ -63,9 +62,12 @@ export default function ProfileCard(props) {
     <div >
     <p className="title is-4">Your Student Post</p>
 
-  <p className="title is-4">Level: {props.userdata.Studentpost.level} </p>
-      <p className="title is-4">Topics{props.userdata.Studentpost.post}</p>
-      <p className="title is-4">Posted On:{props.userdata.Studentpost.createdAt.substring(0,10)}</p>
+      <p className="title is-4">About: {props.userdata.Studentpost.about}</p>
+      <p className="title is-4">SKILLS:</p>
+      <ul>
+        {props.userdata.StudentSkills.map(element => <li> {element.skill}</li>  )}
+      </ul>
+      
 
     </div>
   </div>
@@ -87,10 +89,9 @@ export default function ProfileCard(props) {
     <p className="title is-4">Your Teacher Post</p>
 
       <p className="title is-4">About: {props.userdata.Teacher.about}</p>
-
-      <p className="title is-4">Skills:{teacherSkillsArray[0]}</p>
+      <p className="title is-4">SKILLS:</p>
       <ul>
-        {teacherSkillsArray.map(element => <li> {element}</li>  )}
+        {props.userdata.TeacherSkills.map(element => <li> {element.skill}</li>  )}
       </ul>
 
     </div>

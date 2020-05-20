@@ -7,14 +7,20 @@ import FilterSkills from '../../components/Filter';
 
 
 
-export default function NewStudentPost() {
+export default function NewStudentPost(props) {
+    console.log(props.currentUser);
     
         const [userState, setUserState] = useState({
           skills: [],
-            post: ""
+            about: ""
             
         });
         const history = useHistory();
+
+        const loginState = {
+          email:props.currentUser.email
+          
+        }
         
         const handleInputChange = event => {
           console.log(event)
@@ -28,35 +34,55 @@ export default function NewStudentPost() {
         
         const handleFormSubmit = event => {
           event.preventDefault();
-          API.createStudentPost(userState).then(newUser => {
+          
+        API.deleteCurrentPost()
+        .then(result => {
+          //  console.log("PreviousPostDeleted: " + result);
+          API.createStudentPost(userState)
+          .then(newUser => {
               console.log(newUser)
               setUserState({
-                level: "",
-                post: ""
+                about: ""
               })
-
-              API.getTeacherMatch({skills:userState.skills})
-              .then(newUser => {
-                console.log("MATCH RESULT TUDENT SKILLS FOR TEACHERS: ",newUser.data)
-                // setUserState({
-                //   level: "",
-                //   post: ""
-                // })
-              })
-              .catch(err => {
-                console.log(err);
-              })
-
-              API.saveStudentSkills(userState.skills)
+              API.deleteStudentSkills()
+              .then(result => {
+                // console.log("Skills deleted from current User: " + result);
+                API.saveStudentSkills(userState.skills)
                 .then(result => {
-                  console.log(result)
+                  // console.log("Skills saved to current User: " + result);
+                  API.login(loginState)
+                  .then(res=>{
+                      console.log(res.data);
+                      props.submitHandler(res.data)
+                      history.push("/profile");
+                  })
                 })
                 .catch(err => {
                   console.log(err);
                 })
-              
-              history.push("/profile");
+              })
+              .catch(err => {
+                console.log(err);
+              })
+            })
+            .catch(err => {
+              console.log(err);
+            })
           })
+          .catch(err => {
+            console.log(err);
+          })
+
+          
+
+              API.getTeacherMatch({skills:userState.skills})
+              .then(newUser => {
+                console.log("MATCH RESULT TUDENT SKILLS FOR TEACHERS: ",newUser.data)
+                
+              })
+              .catch(err => {
+                console.log(err);
+              })
         
         }
 
@@ -64,10 +90,10 @@ export default function NewStudentPost() {
           console.log(chosen)
           let chosenskills = chosen;
           setUserState({
-            
+            ...userState,
             skills: chosenskills
         })
-        
+        console.log(userState.skills);
         
         }
         
@@ -87,17 +113,11 @@ export default function NewStudentPost() {
                   <br/>
                   <br/>
                     
-                {/* <div className="field">
-          <label className="label">Skill Level</label>
-          <div className="control">
-            <input className="input" type="text" onChange={handleInputChange} name="level" value={userState.level} placeholder="1 to 10"/>
-          </div>
-        </div> */}
         
         <div className="field">
-          <label className="label">Post</label>
+          <label className="label">About</label>
           <div className="control">
-            <input className="input" type="text" onChange={handleInputChange} name="post" value={userState.post} placeholder="Javascript"/>
+            <input className="input" type="text" onChange={handleInputChange} name="about" value={userState.about} placeholder="About"/>
           </div>
         </div>
         

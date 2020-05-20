@@ -62,11 +62,11 @@ const [currentUser,setCurrentUser] = useState(false);
       </Route>
 
       <Route exact path="/newpost">
-         <NewStudentPost/>
+         <NewStudentPost currentUser={currentUser} submitHandler={loginSubmitHandler} />
       </Route>
 
       <Route exact path="/newTeacherPost">
-         <NewTeacherPost currentUser={currentUser}/>
+         <NewTeacherPost currentUser={currentUser} submitHandler={loginSubmitHandler} />
       </Route>
 
       </Switch>
