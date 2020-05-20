@@ -75,7 +75,7 @@ export default function NewStudentPost(props) {
 
           
 
-              API.getTeacherMatch({skills:userState.skills})
+              API.getTeacherMatch({skills:userState.skills.join(",")})
               .then(newUser => {
                 console.log("MATCH RESULT TUDENT SKILLS FOR TEACHERS: ",newUser.data)
                 
