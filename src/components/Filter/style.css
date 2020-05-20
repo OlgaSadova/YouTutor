@@ -1,10 +1,32 @@
 .headline{
     text-align: center;
 }
+.container1{
+    background-color: rosybrown;
+    width: 15cm;
+    align-items: center;
+    margin-left: 5cm;
+    border-style: double;
+    border-radius: 10mm;
+   
+}
 
 .find-card-header{
     text-align: center;
-    background-color: chartreuse;
+    background-color: rgb(33, 159, 168);
+    text-align: center;
+    border-width: 3mm;
+    border-color: lavenderblush;
+    border-style: double;
+    border-radius: 10mm;
+    
+    
+
+}
+
+
+h1{
+    text-align: center;
 }
 
 .green-btn{
@@ -23,7 +45,10 @@
     cursor: pointer;
 }
 .border{
-    border: 1px solid black;
+    border-style: groove;
+   border-radius: 5mm;
+   background-color: rgb(76, 194, 202);
+  
 }
 
 .skill-btn  {
@@ -31,5 +56,18 @@
   }
 
 .content {
+    margin-left: 3mm;
+    border-radius: 3mm;
     
+}
+.navbar-brand{
+    align-items: center;
+    text-align: center;
+}
+.filter-card {
+ border: 2mm;
+ 
+}
+.form-control{
+    border-radius: 1mm;
 }

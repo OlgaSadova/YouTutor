@@ -1,6 +1,7 @@
 import React from 'react';
-// import Rating from '../Rating';
+import Rating from '../Rating';
 import StarRatingComponent from 'react-star-rating-component';
+import Review from '../../pages/Review';
 
 
 export default function TeacherCard(props) {
@@ -31,7 +32,7 @@ export default function TeacherCard(props) {
         </div>
       </div>
    
-    {/* <StarRatingComponent/> */}
+    
     </div>
         
      )
