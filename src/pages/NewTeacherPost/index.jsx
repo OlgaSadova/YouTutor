@@ -10,12 +10,12 @@ import FilterSkills from '../../components/Filter';
 
 export default function NewTeacherPost(props) {
 
-  console.log(props);
   
   
     
         const [userState, setUserState] = useState({
         skills: [],
+        // levels: "",
         about: "",
         YearsofExperience:""
            
@@ -102,8 +102,20 @@ export default function NewTeacherPost(props) {
               <FilterSkills getSkills={getSkills} />
                 <div className = "UserForm">
                   
-                    <label className="label is-large">Post your Add as a Teacher:</label>
-                
+                    <label className="name" className="label is-large">Post your Add as a Teacher:</label>
+                {/* <div className="field">
+          <label className="label">Skills</label>
+          <div className="control">
+            <input className="input" type="text" onChange={handleInputChange} name="skills" value={userState.skills} placeholder="1 to 10"/>
+          </div>
+        </div>  */}
+        
+        {/* <div className="field">
+          <label className="label">Levels</label>
+          <div className="control">
+            <input className="input" type="text" onChange={handleInputChange} name="levels" value={userState.levels} placeholder="Javascript"/>
+          </div>
+        </div> */}
 
         <div className="field">
           <label className="label">About</label>
