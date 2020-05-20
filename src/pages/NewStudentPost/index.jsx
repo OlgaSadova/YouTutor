@@ -17,6 +17,7 @@ export default function NewStudentPost() {
         const history = useHistory();
         
         const handleInputChange = event => {
+          console.log(event)
           const { name, value } = event.target;
           setUserState({
               ...userState,
@@ -35,6 +36,18 @@ export default function NewStudentPost() {
                 about: ""
               })
 
+              API.getTeacherMatch(userState.skills)
+              .then(newUser => {
+                console.log("MATCH RESULT TUDENT SKILLS FOR TEACHERS: ",newUser.data)
+                // setUserState({
+                //   level: "",
+                //   post: ""
+                // })
+              })
+              .catch(err => {
+                console.log(err);
+              })
+
               API.saveStudentSkills(userState.skills)
                 .then(result => {
                   console.log(result)
@@ -49,6 +62,7 @@ export default function NewStudentPost() {
         }
 
         const getSkills = chosen => {
+          console.log(chosen)
           let chosenskills = chosen;
           setUserState({
             
