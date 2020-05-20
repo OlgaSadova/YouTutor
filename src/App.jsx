@@ -10,6 +10,7 @@ import NewTeacherPost from './pages/NewTeacherPost';
 import Navbar from './components/Navbar';
 import API from './utils/API';
 
+
 function App() {
 
 const [currentUser,setCurrentUser] = useState(false);
