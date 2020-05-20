@@ -91,9 +91,10 @@ function FilterSkills(props) {
   // }
 
   return (
-    <div className="filter card">
+    <div className="container1">
+    <div className="filter-card">
       <div className="find-card-header">
-        <span className="navbar-brand find-card-header">Find Skills</span>
+        <span className="Txt" className="navbar-brand find-card-header"><h1>Find Skills</h1></span>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <form className="form-inline my-2 my-lg-0">
                 <input onChange={handleInput} className="form-control mr-sm-2" type="search" placeholder="Filter Skills here" aria-label="Search" />
@@ -122,7 +123,7 @@ function FilterSkills(props) {
     </div>
 
         </div>
-    
+        </div>
     
 
   )
