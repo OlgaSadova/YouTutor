@@ -18,11 +18,16 @@ export default function NewTeacherPost(props) {
         skills: [],
         about: "",
         YearsofExperience:""
-        
-
-            
+           
         });
+
         const history = useHistory();
+
+
+        const loginState = {
+          email:props.currentUser.email
+          
+        }
         
         const handleInputChange = event => {
           const { name, value } = event.target;
@@ -47,30 +52,47 @@ export default function NewTeacherPost(props) {
           event.preventDefault();
           console.log("inside the handleformsubmit");
           console.log(userState);
-          
-          
-          API.createTeacherPost(userState).then(newUser => {
-              console.log(userState)
-              setUserState({
-                  // levels: "",
-                  about: "",
-                  YearsofExperience: ""
-              })
 
+          API.deleteTeacherCurrentPost()
+        .then(result => {
+          //  console.log("PreviousPostDeleted: " + result);
+          API.createTeacherPost(userState)
+          .then(newUser => {
+              console.log(newUser)
+              setUserState({
+                about: "",
+                YearsofExperience:""
+              })
+              API.deleteTeacherSkills()
+              .then(result => {
+                console.log("Skills deleted from current User: " + result);
                 API.saveTeacherSkills(userState.skills)
                 .then(result => {
-                  console.log(result)
+                  console.log("Skills saved to current User: " + result);
+                  API.login(loginState)
+                  .then(res=>{
+                      console.log(res.data);
+                      props.submitHandler(res.data)
+                      history.push("/profile");
+                  })
                 })
                 .catch(err => {
                   console.log(err);
                 })
-              
-
-                
-              
-              
-              history.push("/profile");
+              })
+              .catch(err => {
+                console.log(err);
+              })
+            })
+            .catch(err => {
+              console.log(err);
+            })
           })
+          .catch(err => {
+            console.log(err);
+          })
+          
+         
         
         }
         
