@@ -15,7 +15,7 @@ function App() {
 const [currentUser,setCurrentUser] = useState(false);
 
   useEffect(()=>{
-     console.log("Running UseEffect");
+    //  console.log("Running UseEffect");
      
     API.readSessions().then(res=>{
       if(res.data.user){

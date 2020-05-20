@@ -41,11 +41,12 @@ export default function Navbar(props) {
 
   <div id="navbarBasicExample" className="navbar-menu">
     <div className="navbar-start">
-      <Link className="navbar-item" onClick="showMe" to ='/'>Home</Link>
+      <Link className="navbar-item" to ='/' >Home</Link>
+      {/* onClick="showMe" */}
       {/* <Link to ='/'>Home</Link> */}
       {/* </a> */}
 
-      <a className="navbar-item">
+      <a className="navbar-item" href="/">
         About
       </a>
 
