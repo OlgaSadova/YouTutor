@@ -28,38 +28,35 @@ export default function NewStudentPost() {
         
         const handleFormSubmit = event => {
           event.preventDefault();
+            API.createStudentPost(userState).then(newUser => {
+                console.log(newUser)
+                setUserState({ 
+                  about: ""
+                })
 
-          API.createStudentPost(userState).then(newUser => {
-              console.log(newUser)
-              setUserState({
-                
-                about: ""
-              })
+            API.getTeacherMatch(userState.skills)
+            .then(newUser => {
+              console.log("MATCH RESULT TUDENT SKILLS FOR TEACHERS: ",newUser.data)
+              // setUserState({
+              //   level: "",
+              //   post: ""
+              // })
+            })
+            .catch(err => {
+              console.log(err);
+            })
 
-              API.getTeacherMatch(userState.skills)
-              .then(newUser => {
-                console.log("MATCH RESULT TUDENT SKILLS FOR TEACHERS: ",newUser.data)
-                // setUserState({
-                //   level: "",
-                //   post: ""
-                // })
+            API.saveStudentSkills(userState.skills)
+              .then(result => {
+                console.log(result)
               })
               .catch(err => {
                 console.log(err);
               })
-
-              API.saveStudentSkills(userState.skills)
-                .then(result => {
-                  console.log(result)
-                })
-                .catch(err => {
-                  console.log(err);
-                })
-              
-              history.push("/profile");
-          })
-        
-        }
+            
+            history.push("/profile");
+        })  
+      }
 
         const getSkills = chosen => {
           console.log(chosen)

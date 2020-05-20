@@ -56,15 +56,25 @@ export default function NewTeacherPost(props) {
                   about: "",
                   YearsofExperience: ""
               })
-
-                API.saveTeacherSkills(userState.skills)
-                .then(result => {
-                  console.log(result)
-                })
-                .catch(err => {
-                  console.log(err);
-                })
-              
+              API.saveTeacherSkills(userState.skills)
+              .then(result => {
+                console.log(result)
+              })
+              .catch(err => {
+                console.log(err);
+              })
+              API.getStudentMatch(userState.skills)
+              .then(newUser => {
+                console.log("MATCH RESULT TUDENT SKILLS FOR TEACHERS: ",newUser.data)
+                // setUserState({
+                //   level: "",
+                //   post: ""
+                // })
+              })
+              .catch(err => {
+                console.log(err);
+              })
+                
 
                 
               

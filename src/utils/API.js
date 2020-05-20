@@ -52,7 +52,10 @@ const API = {
         return axios.post(`${BASE_URL}/teacherReview`, teacherData)
     },
     getTeacherMatch: function(teacherData){
-        return axios.post(`${BASE_URL}/api/matchskills`, teacherData)
+        return axios.post(`${BASE_URL}/api/matchteacherskills`, teacherData)
+    },
+    getStudentMatch: function(teacherData){
+        return axios.post(`${BASE_URL}/api/matchstudentskills`, teacherData)
     }
 
 
