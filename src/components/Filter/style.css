@@ -3,11 +3,12 @@
 }
 .container1{
     background-color: rosybrown;
-    width: 15cm;
+    width: fit-content;
     align-items: center;
-    margin-left: 5cm;
-    border-style: double;
-    border-radius: 10mm;
+min-width: 5cm;
+    border-style: solid;
+    /* border-radius: 10mm; */
+    border-color: rgb(134, 235, 230);
    
 }
 
@@ -15,10 +16,10 @@
     text-align: center;
     background-color: rgb(33, 159, 168);
     text-align: center;
-    border-width: 3mm;
+    border-width: 2mm;
     border-color: lavenderblush;
-    border-style: double;
-    border-radius: 10mm;
+    border-style: solid;
+    /* border-radius: 10mm; */
     
     
 
@@ -45,10 +46,10 @@ h1{
     cursor: pointer;
 }
 .border{
-    border-style: groove;
-   border-radius: 5mm;
+    border-style: solid;
+   /* border-radius: 6mm; */
    background-color: rgb(76, 194, 202);
-  
+  border-color: lightcyan;
 }
 
 .skill-btn  {
@@ -56,8 +57,8 @@ h1{
   }
 
 .content {
-    margin-left: 3mm;
-    border-radius: 3mm;
+    margin-left: 0mm;
+    /* border-radius: 3mm; */
     
 }
 .navbar-brand{
