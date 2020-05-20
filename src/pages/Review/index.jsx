@@ -61,6 +61,7 @@ export default function Review(props) {
 
     return (
         <div>
+
            <div className="TeacherForm">
            <label className="label is-large">Create A Review:</label>
 
@@ -87,6 +88,10 @@ export default function Review(props) {
           <div className="control">
             <button className="button is-link is-light"><Link to ='/profile'>Cancel</Link></button>
           </div>
+
+            
+            
+
         </div>
 
            

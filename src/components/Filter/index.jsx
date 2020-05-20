@@ -56,7 +56,8 @@ function FilterSkills(props) {
       }
     }
 
-    props.getSkills(chosenSkillState)
+    props.getSkills([...chosenSkillState, event.target.value])
+
 
   }
 
@@ -76,7 +77,7 @@ function FilterSkills(props) {
       }
     }
 
-    props.getSkills(chosenSkillState)
+    props.getSkills(...chosenSkillState, event.target.value)
 
   }
 
@@ -91,9 +92,10 @@ function FilterSkills(props) {
   // }
 
   return (
-    <div className="filter card">
+    <div className="container1">
+    <div className="filter-card">
       <div className="find-card-header">
-        <span className="navbar-brand find-card-header">Find Skills</span>
+        <span className="Txt" className="navbar-brand find-card-header"><h1>Find Skills</h1></span>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <form className="form-inline my-2 my-lg-0">
                 <input onChange={handleInput} className="form-control mr-sm-2" type="search" placeholder="Filter Skills here" aria-label="Search" />
@@ -112,17 +114,17 @@ function FilterSkills(props) {
         </div> 
         
         <div className="content border">
-    
+        {/* <span><img src={logoX} alt="logo" height="15" width="15"/> </span> */}
         {chosenSkillState.map(skill => (
             <div className="row" key={skill}>
-              <button onClick={handleSkillClick2} className="button is-primary is-rounded is-small" value={skill}>{skill} <span><img src={logoX} alt="logo" height="15" width="15"/> </span></button>
+              <button onClick={handleSkillClick2} className="button is-primary is-rounded is-small" value={skill}>{skill}</button>
             </div>
           ))}
           {/* <button onClick={handleSearch} className="button is-rounded is-small"> SEARCH </button> */}
     </div>
 
         </div>
-    
+        </div>
     
 
   )
