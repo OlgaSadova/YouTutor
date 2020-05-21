@@ -58,6 +58,9 @@ const API = {
     },
     getTeacherMatch: function(teacherData){
         return axios.post(`${BASE_URL}/api/matchteacherskills`, teacherData)
+    },
+    getStudentMatch: function(teacherData){
+        return axios.post(`${BASE_URL}/api/matchstudentskills`, teacherData)
     }
 
 

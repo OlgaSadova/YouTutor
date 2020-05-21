@@ -91,9 +91,20 @@ export default function NewTeacherPost(props) {
           .catch(err => {
             console.log(err);
           })
+
+
+
+          API.getStudentMatch({skills:userState.skills.join(",")})
+              .then(newUser => {
+                console.log("MATCH RESULT TUDENT SKILLS FOR STUDENTS: "+ newUser.data)
+                
+              })
+              .catch(err => {
+                console.log(err);
+              })
           
          
-        
+          
         }
         
         
