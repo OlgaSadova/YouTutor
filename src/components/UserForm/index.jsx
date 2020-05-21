@@ -62,6 +62,7 @@ const handleFormSubmit = event => {
       } 
       else {
           props.submitHandler(false)
+        
           history.push("/signup");
       }
       
