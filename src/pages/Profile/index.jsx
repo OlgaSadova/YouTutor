@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import ProfileCard from "../../components/ProfileCard"
 import "./style.css"
 // import API from "../../utils/API"
@@ -24,6 +24,39 @@ export default function Profile(props) {
         //API.saveReviews(dataToSupplyIntoAPI);
         console.log("newValue: ", nextValue, "prevValue: ", prevValue, "teacherID: ", name);
 
+<<<<<<< HEAD
+    const getTutors = () => {
+        //This is hardcoded. Need to implement to get the actual data from the server
+        /*Example: 
+        let reviews = [];
+        API.getReview().then((res)=> result = res.data);
+        return reviews
+        */
+        return [
+            { id: 1, name: "John", rating: 3 },
+            { id: 2, name: "Vasya", rating: 4 },
+            { id: 3, name: "Sveta", rating: 3 }
+        ];
+    };
+
+    const tutors = getTutors();
+    const tutorCards = [];
+
+    for (let i = 0; i < tutors.length; i++) {
+        const tutor = tutors[i];
+        tutorCards.push(
+            //This is where you should use the ACTUAL TeacherCard instead of the code below
+            // <TeachCard teach={tutor} />
+            <div>
+                {tutor.name} : <StarRatingComponent name={tutor.id} value={tutor.rating} onStarClick={
+                    (nextValue, prevValue, name) => updateTutorRating(nextValue, prevValue, name)
+                } />
+            </div>
+        );
+    }
+
+
+=======
           }
 
 const getTutors = () => {
@@ -56,23 +89,79 @@ const tutor = tutors[i];
   }
 
   
+>>>>>>> refs/remotes/origin/YB0522a
 
 
     // const teacherAdd = props.currentUser.Teachers
     return (
-        <div className="ProfilePage">
+        <div classNameName="ProfilePage">
             <ProfileCard userdata={User} />
             {/* <TeacherCard teacherdata= {teacherAdd}/> */}
-            <button className="button is-link is-outlined"><Link to='/newTeacherPost'>This is where Teachers go to create an add and Look For Students</Link></button>
-            <button className="button is-danger is-outlined"><Link to='/newpost'>This is where students go if they need a Teacher</Link></button>
+            <button classNameName="button is-link is-outlined"><Link to='/newTeacherPost'>This is where Teachers go to create an add and Look For Students</Link></button>
+            <button classNameName="button is-danger is-outlined"><Link to='/newpost'>This is where students go if they need a Teacher</Link></button>
             <div>
                 {tutorCards}
             </div>
             <div>
+            </div>
+            <ul>
+
+                {props.studentsearch ? props.studentsearch.map(userInfo => (
+                    
+                    <li key={userInfo.userID}>
+                        <div className="box studentbox">
+                            <article className="media">
+                                <div className="media-left">
+                                    <figure className="image is-64x64">
+                                        <img src={userInfo.studentResults ? userInfo.studentResults[0].User.picture: "https://bulma.io/images/placeholders/128x128.png"} alt="picture" />
+                                    </figure>
+                                </div>
+                                <div className="media-content">
+                                    <div className="content">
+                                        <p>
+                                            <strong>{userInfo.studentResults ? userInfo.studentResults[0].User.first_name + " " + userInfo.studentResults[0].User.last_name : ""}</strong> <small>he asks for help on {userInfo.postDate}</small>
+                                            <br />
+                                            You have  <strong>{Math.floor(userInfo.percentage)}%</strong> of the skill he is looking for
+                                            <br />
+                                            Email: {userInfo.studentResults[0].User.email}
+                                            we can also put his skills
+                                            
+                                            
+                                      </p>
+                                    </div>
+                                    <nav className="level is-mobile">
+                                        <div className="level-left">
+                                            <a className="level-item" aria-label="reply">
+                                                <span className="icon is-small">
+                                                    <i className="fas fa-reply" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+                                            <a className="level-item" aria-label="retweet">
+                                                <span className="icon is-small">
+                                                    <i className="fas fa-retweet" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+                                            <a className="level-item" aria-label="like">
+                                                <span className="icon is-small">
+                                                    <i className="fas fa-heart" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </article>
+                        </div>
 
 
 
 
+<<<<<<< HEAD
+                    </li>
+                )) : ""}
+            </ul>
+
+
+=======
             <ProfileCard userdata= {User}/>
             {/* <TeacherCard teacherdata= {teacherAdd}/> */}
             
@@ -82,65 +171,69 @@ const tutor = tutors[i];
             
             <div>
                 {tutorCards}
+>>>>>>> refs/remotes/origin/YB0522a
 
-            </div>
 
+            <ul>
 
-            <div class="box">
-    <article class="media">
-        <div class="media-left">
-            <figure class="image is-64x64">
-                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image"/>
-      </figure>
-    </div>
-            <div class="media-content">
-                <div class="content">
-                    <p>
-                        <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-                        <br/>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                   </p>
-             </div>
-                    <nav class="level is-mobile">
-                        <div class="level-left">
-                            <a class="level-item" aria-label="reply">
-                                <span class="icon is-small">
-                                    <i class="fas fa-reply" aria-hidden="true"></i>
+{props.teachersearch ? props.teachersearch.map(userInfo => (
+    
+    <li key={userInfo.userID}>
+        <div className="box teacherbox">
+            <article className="media">
+                <div className="media-left">
+                    <figure className="image is-64x64">
+                        <img src={userInfo.teacherResults ? userInfo.teacherResults[0].User.picture: "https://bulma.io/images/placeholders/128x128.png"} alt="picture" />
+                    </figure>
+                </div>
+                <div className="media-content">
+                    <div className="content">
+                        <p>
+                            <strong>{userInfo.teacherResults ? userInfo.teacherResults[0].User.first_name + " " + userInfo.teacherResults[0].User.last_name : ""}</strong> <small>he asks for help on {userInfo.postDate}</small>
+                            <br />
+                            You have  <strong>{Math.floor(userInfo.percentage)}%</strong> of the skill he is looking for
+                            <br />
+                            Email: {userInfo.teacherResults[0].User.email}
+                            we can also put his skills
+                            
+                            
+                      </p>
+                    </div>
+                    <nav className="level is-mobile">
+                        <div className="level-left">
+                            <a className="level-item" aria-label="reply">
+                                <span className="icon is-small">
+                                    <i className="fas fa-reply" aria-hidden="true"></i>
                                 </span>
                             </a>
-                            <a class="level-item" aria-label="retweet">
-                                <span class="icon is-small">
-                                    <i class="fas fa-retweet" aria-hidden="true"></i>
+                            <a className="level-item" aria-label="retweet">
+                                <span className="icon is-small">
+                                    <i className="fas fa-retweet" aria-hidden="true"></i>
                                 </span>
                             </a>
-                            <a class="level-item" aria-label="like">
-                                <span class="icon is-small">
-                                    <i class="fas fa-heart" aria-hidden="true"></i>
+                            <a className="level-item" aria-label="like">
+                                <span className="icon is-small">
+                                    <i className="fas fa-heart" aria-hidden="true"></i>
                                 </span>
                             </a>
                         </div>
                     </nav>
                 </div>
-  </article>
+            </article>
         </div>
-        <ul>
-          
-        {props.studentsearch ? props.studentsearch.map(userInfo => (
-            <li className={userInfo.userID}>
-              <div className="" >{userInfo.userFirst} needs help with: {userInfo.userSkills}</div>
-              <div className="" >You have {userInfo.percentage}% of the skill he is looking for</div>
-              <div className="" >{userInfo.email}</div>
-              <div className="" >he asks for help on {userInfo.postDate}</div>
 
-            </li>
-          )):""} 
-          </ul>
-       
+
+
+
+    </li>
+)) : ""}
+</ul>
+
 
         </div>
 
     )
-    }
+}
 
 
 

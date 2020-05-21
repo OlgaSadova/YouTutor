@@ -13,3 +13,14 @@ h1{
 h3{
     text-align: center;
 }
+
+.studentbox{
+    background-color: rgb(255, 226, 220);
+    border: 1px solid red;
+}
+
+
+.teacherbox{
+    background-color: rgb(224, 255, 245);
+    border: 1px solid green;
+}
