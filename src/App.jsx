@@ -16,6 +16,7 @@ function App() {
 
 const [currentUser,setCurrentUser] = useState(false);
 const [studentsearch, setStudentSearch] = useState(false);
+
 const [teachersearch, setTeacherSearch] = useState(false);
 
   useEffect(()=>{
@@ -37,6 +38,7 @@ const [teachersearch, setTeacherSearch] = useState(false);
   const passTeachers = teachers => {
     setTeacherSearch(teachers)
   }
+
 
   const loginSubmitHandler= userData=>{
     setCurrentUser(userData)
@@ -64,7 +66,10 @@ const [teachersearch, setTeacherSearch] = useState(false);
       </Route>
 
       <Route exact path="/profile">
-         <Profile currentUser={currentUser} studentsearch = {studentsearch} teachersearch = {teachersearch}/>
+
+
+        <Profile currentUser={currentUser} studentsearch = {studentsearch} teachersearch = {teachersearch}/>
+
       </Route>
       
       <Route exact path="/login">
