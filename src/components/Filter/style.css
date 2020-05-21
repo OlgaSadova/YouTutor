@@ -1,0 +1,75 @@
+.headline{
+    text-align: center;
+}
+.container1{
+    background-color: rosybrown;
+    width: fit-content;
+    align-items: flex;
+    min-width: 6cm;
+    border-style: solid;
+       border-color: rgb(134, 235, 230);
+}
+
+.find-card-header{
+    text-align: center;
+    background-color: rgb(146, 237, 243);
+    text-align: center;
+    border-width: 2mm;
+    border-color: lavenderblush;
+    border-style: solid;
+    /* border-radius: 10mm; */
+    
+}
+span.navbar-brand{
+    color: black;
+    text-decoration : underline;
+    padding-left: 80px;
+    
+}
+
+
+h1{
+    text-align: center;
+    text-decoration: lightseagreen;
+}
+
+.green-btn{
+    background-color: blue;
+}
+.col-style{
+    border-top: 1px solid black  ;
+   
+}
+
+
+
+.sort-text{
+    cursor: pointer;
+}
+.border{
+    border-style: solid;
+   /* border-radius: 6mm; */
+   background-color: rgb(76, 194, 202);
+  border-color: lightcyan;
+}
+
+.skill-btn  {
+    float: left;
+  }
+
+.content {
+    margin-left: 0mm;
+    /* border-radius: 3mm; */
+    
+}
+.navbar-brand{
+    align-items: center;
+    text-align: center;
+}
+.filter-card {
+ border: 2mm;
+ 
+}
+.form-control{
+    border-radius: 1mm;
+}
