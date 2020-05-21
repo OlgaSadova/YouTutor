@@ -2,6 +2,7 @@ import React from 'react';
 import Rating from '../Rating';
 import StarRatingComponent from 'react-star-rating-component';
 import Review from '../../pages/Review';
+import CalendlyEmbed from "../Calendly"
 
 
 export default function TeacherCard(props) {
@@ -18,13 +19,17 @@ export default function TeacherCard(props) {
       <div className="card-content">
         <div className="media">
           
-          <div className="media-content">
+          {/* <div className="media-content">
         <p className="title is-4"> {props.teacherdata.levels} {props.teacherdata.last_name} </p>
             <p className="subtitle is-6">{props.teacherdata.email}</p>
-          </div>
+          </div> */}
         </div>
+
+   
     
         <div className="content">
+          <Review />
+          <CalendlyEmbed account="teachersCalendlyAcc" eventName="nameOfEvent" />
         {/* {props.text} <a>{props.email}</a>. */}
           {/* <a href="#">#css</a> <a href="#">#responsive</a>
           <br/>
