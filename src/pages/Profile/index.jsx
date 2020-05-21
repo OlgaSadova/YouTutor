@@ -36,8 +36,7 @@ API.getReview().then((res)=> result = res.data);
 return reviews
 */
   return [
-      {id: 1, name: "John", rating: 3},
-      {id: 2, name: "Vasya", rating: 4},
+      
       {id: 3, name: "Sveta", rating:3}
   ];
 };
@@ -70,9 +69,9 @@ const tutor = tutors[i];
             <ProfileCard userdata= {User}/>
             {/* <TeacherCard teacherdata= {teacherAdd}/> */}
             
-            <button className="button is-link is-outlined"><Link to ='/newTeacherPost'>This is where Teachers go to create an add and Look For Students</Link></button>
+            <button className="button is-link is-outlined"><Link to ='/newTeacherPost'>Look For Students</Link></button>
 
-            <button className="button is-danger is-outlined"><Link to ='/newpost'>This is where students go if they need a Teacher</Link></button>
+            <button className="button is-danger is-outlined"><Link to ='/newpost'>Look for Teachers</Link></button>
             
             <div>
                 {tutorCards}
