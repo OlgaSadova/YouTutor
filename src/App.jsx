@@ -9,6 +9,7 @@ import NewStudentPost from './pages/NewStudentPost';
 import NewTeacherPost from './pages/NewTeacherPost';
 import Navbar from './components/Navbar';
 import API from './utils/API';
+import TeacherCard from './components/TeacherCard';
 
 
 function App() {
@@ -76,6 +77,10 @@ const [teachersearch, setTeacherSearch] = useState(false);
 
       <Route exact path="/newTeacherPost">
          <NewTeacherPost currentUser={currentUser} submitHandler={loginSubmitHandler} passStudents ={passStudents} />
+      </Route>
+
+      <Route exact path="/newTeachercard">
+    <TeacherCard />
       </Route>
 
       </Switch>
