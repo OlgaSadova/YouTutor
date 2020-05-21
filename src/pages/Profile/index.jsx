@@ -1,9 +1,9 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import ProfileCard from "../../components/ProfileCard"
 import "./style.css"
-import API from "../../utils/API"
+// import API from "../../utils/API"
 import { Link } from "react-router-dom";
-import TeacherCard from '../../components/TeacherCard';
+// import TeacherCard from '../../components/TeacherCard';
 import StarRatingComponent from 'react-star-rating-component';
 
 
@@ -72,6 +72,8 @@ const tutor = tutors[i];
             <div>
                 {tutorCards}
             </div>
+
+            
 </div>
            
     )

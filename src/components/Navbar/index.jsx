@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import { Link } from "react-router-dom";
 import API from '../../utils/API';
-import {useHistory} from "react-router-dom"
-
+import {useHistory} from "react-router-dom";
+import './style.css'
 
 
 export default function Navbar(props) {
@@ -41,14 +41,15 @@ export default function Navbar(props) {
 
   <div id="navbarBasicExample" className="navbar-menu">
     <div className="navbar-start">
-      <Link className="navbar-item" onClick="showMe" to ='/'>Home</Link>
+      <Link className="navbar-item" to ='/' >Home</Link>
+      {/* onClick="showMe" */}
       {/* <Link to ='/'>Home</Link> */}
       {/* </a> */}
-
-      <a className="navbar-item">
+<div className="navbar-item" >
+      <a  href="/about">
         About
       </a>
-
+      </div>
       {/* <div className="navbar-item has-dropdown is-hoverable">
         <a className="navbar-link">
           More

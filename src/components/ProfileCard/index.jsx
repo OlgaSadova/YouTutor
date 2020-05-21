@@ -3,13 +3,13 @@ import "./style.css"
 import API from "../../utils/API"
 
 export default function ProfileCard(props) {
-    console.log(props.userdata.TeacherSkills);
+    // console.log(props.userdata.TeacherSkills);
 
     const [teacherSkillsArray, setTeacherArray] = useState([]);
     
     useEffect(() => {
     // if(props.userdata.Teacher){
-    console.log(props.userdata.Teacher);
+    // console.log(props.userdata.Teacher);
     
       API.getTeacherSkills(props.userdata.id)
                 .then(res => {
@@ -19,8 +19,7 @@ export default function ProfileCard(props) {
 
                   setTeacherArray(skillsArr)
 
-                  console.log("skillsArrsssssssss",skillsArr)
-                  console.log(teacherSkillsArray)
+                
                   
               })
               .catch(err => {

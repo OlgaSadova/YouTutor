@@ -10,7 +10,7 @@ import FilterSkills from '../../components/Filter';
 
 export default function NewTeacherPost(props) {
 
-  console.log(props);
+  // console.log(props);
   
   
     
@@ -91,9 +91,21 @@ export default function NewTeacherPost(props) {
           .catch(err => {
             console.log(err);
           })
+
+
+
+          API.getStudentMatch({skills:userState.skills.join(",")})
+              .then(newUser => {
+                console.log("MATCH RESULT TUDENT SKILLS FOR STUDENTS: ", newUser.data)
+                props.passStudents(newUser.data)
+                
+              })
+              .catch(err => {
+                console.log(err);
+              })
           
          
-        
+          
         }
         
         
@@ -104,7 +116,6 @@ export default function NewTeacherPost(props) {
                   
                     <label className="label is-large">Post your Add as a Teacher:</label>
                 
-
         <div className="field">
           <label className="label">About</label>
           <div className="control">
