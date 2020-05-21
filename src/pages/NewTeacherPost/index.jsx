@@ -100,6 +100,7 @@ export default function NewTeacherPost(props) {
       <div className="UserForm">
         <label className="label is-large">Post your Add as a Teacher:</label>
 
+
         <div className="field">
           <label className="label">About</label>
           <div className="control">
