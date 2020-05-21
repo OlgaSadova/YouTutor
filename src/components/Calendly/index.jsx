@@ -31,6 +31,6 @@ class CalendlyEmbed extends React.Component {
   }
 }
 //how to export the code 
-{/* <CalendlyEmbed account="teachersCalendlyAcc" eventName="nameOfEvent" /> */}
+{/* */}
 
 export default CalendlyEmbed

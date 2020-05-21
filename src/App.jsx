@@ -9,11 +9,13 @@ import NewStudentPost from './pages/NewStudentPost';
 import NewTeacherPost from './pages/NewTeacherPost';
 import Navbar from './components/Navbar';
 import API from './utils/API';
+import TeacherCard from './components/TeacherCard';
 
 
 function App() {
 
 const [currentUser,setCurrentUser] = useState(false);
+const [studentsearch, setStudentSearch] = useState(false);
 
   useEffect(()=>{
     //  console.log("Running UseEffect");
@@ -27,7 +29,9 @@ const [currentUser,setCurrentUser] = useState(false);
     })
   },[])
 
-  
+  const passStudents = students => {
+    setStudentSearch(students)
+  }
 
   const loginSubmitHandler= userData=>{
     setCurrentUser(userData)
@@ -55,7 +59,7 @@ const [currentUser,setCurrentUser] = useState(false);
       </Route>
 
       <Route exact path="/profile">
-         <Profile currentUser={currentUser}/>
+         <Profile currentUser={currentUser} studentsearch = {studentsearch}/>
       </Route>
       
       <Route exact path="/login">
@@ -67,7 +71,11 @@ const [currentUser,setCurrentUser] = useState(false);
       </Route>
 
       <Route exact path="/newTeacherPost">
-         <NewTeacherPost currentUser={currentUser} submitHandler={loginSubmitHandler} />
+         <NewTeacherPost currentUser={currentUser} submitHandler={loginSubmitHandler} passStudents ={passStudents} />
+      </Route>
+
+      <Route exact path="/newTeachercard">
+    <TeacherCard />
       </Route>
 
       </Switch>

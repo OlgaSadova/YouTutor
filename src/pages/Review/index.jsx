@@ -67,8 +67,9 @@ export default function Review(props) {
 
            <div className="field">
           <label className="label">Rating:</label>
-          {/* <div className="control">
-             <StarRatingComponent onStarClick={this.onStarClick.bind(userReview.rating)} value={userReview.rating}
+
+          <div className="control"> <StarRatingComponent  value={userReview.rating}
+
         
          />
           </div> */}
