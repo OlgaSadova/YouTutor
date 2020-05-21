@@ -8,10 +8,10 @@ import FilterSkills from '../../components/Filter';
 
 
 export default function NewStudentPost(props) {
-    console.log(props.currentUser);
+    console.log(props);
     
         const [userState, setUserState] = useState({
-          skills: [],
+          skills: ["None"],
             about: ""
             
         });
@@ -77,8 +77,8 @@ export default function NewStudentPost(props) {
 
               API.getTeacherMatch({skills:userState.skills.join(",")})
               .then(newUser => {
-                console.log("MATCH RESULT TUDENT SKILLS FOR TEACHERS: ",newUser.data)
-                
+                console.log("MATCH RESULT STUDENT SKILLS FOR TEACHERS: ",newUser.data)
+                props.passTeachers(newUser.data);
               })
               .catch(err => {
                 console.log(err);
