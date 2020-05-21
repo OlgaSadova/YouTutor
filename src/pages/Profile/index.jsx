@@ -11,6 +11,11 @@ import StarRatingComponent from 'react-star-rating-component';
 
 export default function Profile(props) {
   console.log(props);
+
+  if(props.studentsearch[0]){
+      console.log(props.studentsearch[0].percentage);
+      
+  }
     
     const User = props.currentUser;
 
