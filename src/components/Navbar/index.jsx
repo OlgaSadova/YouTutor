@@ -1,29 +1,12 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import API from '../../utils/API';
-import {useHistory} from "react-router-dom";
-import './style.css'
-
+import API from "../../utils/API";
+import { useHistory, useLocation } from "react-router-dom";
+import "./style.css";
 
 export default function Navbar(props) {
-  const [visible, setVisible] = useState(true);
-  
-  
-  function hideMe(){ 
-    console.log(visible)
-    setVisible(false); 
-     
-  }
-  let styles = {display: 'inline'};
-
-  if(!visible) styles.display = "none"
-  function showMe(){ 
-    console.log(visible)
-    setVisible(true);  
-  }
-
- 
-
+  const location = useLocation();
+  console.log(location.pathname);
 
   const history = useHistory();
 
@@ -37,12 +20,13 @@ export default function Navbar(props) {
 
 
     return (
+
         <nav className="navbar" role="navigation" aria-label="main navigation">
 
   <div id="navbarBasicExample" className="navbar-menu">
     <div className="navbar-start">
       <Link className="navbar-item" to ='/' >Home</Link>
-     
+    </div> 
 <div className="navbar-item" >
       <a  href="/Profile">
         Profile
@@ -88,9 +72,10 @@ export default function Navbar(props) {
         
       
         </div>
+
       </div>
-    </div> 
-  </div>
-</nav>
-    )
-    }
+      
+    </div>
+    </nav>
+  )
+}

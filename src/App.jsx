@@ -17,6 +17,8 @@ function App() {
 const [currentUser,setCurrentUser] = useState(false);
 const [studentsearch, setStudentSearch] = useState(false);
 
+const [teachersearch, setTeacherSearch] = useState(false);
+
   useEffect(()=>{
     //  console.log("Running UseEffect");
      
@@ -32,6 +34,11 @@ const [studentsearch, setStudentSearch] = useState(false);
   const passStudents = students => {
     setStudentSearch(students)
   }
+
+  const passTeachers = teachers => {
+    setTeacherSearch(teachers)
+  }
+
 
   const loginSubmitHandler= userData=>{
     setCurrentUser(userData)
@@ -59,15 +66,18 @@ const [studentsearch, setStudentSearch] = useState(false);
       </Route>
 
       <Route exact path="/profile">
-         <Profile currentUser={currentUser} studentsearch = {studentsearch}/>
+
+
+        <Profile currentUser={currentUser} studentsearch = {studentsearch} teachersearch = {teachersearch}/>
+
       </Route>
       
       <Route exact path="/login">
-         <Login submitHandler={loginSubmitHandler}/>
+         <Login submitHandler={loginSubmitHandler} passStudents ={passStudents} passTeachers = {passTeachers}/>
       </Route>
 
       <Route exact path="/newpost">
-         <NewStudentPost currentUser={currentUser} submitHandler={loginSubmitHandler} />
+         <NewStudentPost currentUser={currentUser} submitHandler={loginSubmitHandler} passTeachers = {passTeachers}/>
       </Route>
 
       <Route exact path="/newTeacherPost">

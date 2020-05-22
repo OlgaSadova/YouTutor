@@ -5,7 +5,7 @@ import React from 'react';
 export default function ImageUpload(props) {
 
   const checkUploadResult = (resultEvent) => {
-      console.log(resultEvent)
+    //   console.log(resultEvent)
         if(resultEvent.event === "success"){
             
 
