@@ -11,11 +11,11 @@
 
 ## Installation
 
-To use this application, follow the link on the repository page; otherwise, you can [click here]().
+To use this application, follow the link on the repository page; otherwise, you can [click here](https://yoututor2020.herokuapp.com/).
 
 ## Usage 
 
-![Create Account]()
+[Create Account](https://yoututor2020.herokuapp.com/)
 
 Upon opening the application, you can either singin or signup with an existing username and password. When you create an account or login, you will be redirected to your profile page.
 ![Profile Page](Profile.jpg)
