@@ -18,8 +18,7 @@ To use this application, follow the link on the repository page; otherwise, you 
 ![Create Account]()
 
 Upon opening the application, you can either singin or signup with an existing username and password. When you create an account or login, you will be redirected to your profile page.
-
-
+![Profile Page](Profile.jpg)
 
 ## Credits
 

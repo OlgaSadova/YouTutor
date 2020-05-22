@@ -4,6 +4,7 @@
 
 h1{
     text-align: center;
+  
 }
 .btn{
     align-items: center;
@@ -15,12 +16,44 @@ h3{
 }
 
 .studentbox{
-    background-color: rgb(255, 226, 220);
-    border: 1px solid red;
+    border: 1px solid blue;
+    margin-top: 10px;
+    text-align: center;
+   
 }
 
 
 .teacherbox{
-    background-color: rgb(224, 255, 245);
-    border: 1px solid green;
+   
+    border: 1px solid red;
+    margin-top: 10px;
+    text-align: center;
+
+    
+}
+
+.tutor-button{
+    margin-top: 10px;
+    text-align: center;
+   
+
+}
+
+.center-element{
+    text-align: center;
+}
+
+
+.left-element{
+    text-align: left;
+}
+
+.teacher-box{
+    margin-top: 10px;
+
+}
+
+.student-box{
+    margin-top: 10px;
+
 }
