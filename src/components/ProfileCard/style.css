@@ -9,3 +9,24 @@
 .card:hover {
     box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
   }
+
+.left-content{
+      text-align: left;
+  }
+
+.center-content{
+    text-align: center;
+}
+
+.student-color{
+    color: blue;
+}
+
+.teacher-color{
+    color: red;
+}
+
+.id-box{
+    margin-top: 10px;
+}
+    
