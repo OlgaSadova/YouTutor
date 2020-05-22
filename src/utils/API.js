@@ -48,13 +48,6 @@ const API = {
     logout:function(){
         return axios.get(`${BASE_URL}/logout`,{withCredentials:true})
     },
-    getReview: function(teacherData){
-        return axios.get(`${BASE_URL}/teacherReview`, teacherData)
-    },
-
-    saveReview: function(teacherData){
-        return axios.post(`${BASE_URL}/teacherReview`, teacherData)
-    },
     getTeacherMatch: function(teacherData){
         return axios.post(`${BASE_URL}/api/matchteacherskills`, teacherData)
     },
