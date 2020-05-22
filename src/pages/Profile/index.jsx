@@ -138,7 +138,7 @@ const tutor = tutors[i];
        
 
         </div>
-
+</div>
     )
     }
 

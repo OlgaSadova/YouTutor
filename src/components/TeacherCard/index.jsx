@@ -29,7 +29,9 @@ export default function TeacherCard(props) {
     
         <div className="content">
           <Review />
-          <CalendlyEmbed account="teachersCalendlyAcc" eventName="nameOfEvent" />
+          <CalendlyEmbed account="example" eventName="Tutor Appointment" />
+
+
         {/* {props.text} <a>{props.email}</a>. */}
           {/* <a href="#">#css</a> <a href="#">#responsive</a>
           <br/>

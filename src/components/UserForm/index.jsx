@@ -5,10 +5,14 @@ import API from "../../utils/API"
 import { Link } from "react-router-dom";
 import ImageUpload from '../../components/ImageWidget';
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
+import showAlert from '../Alert';
 
 
 
 export default function UserForm(props) {
+
+ 
+  
 
 // console.log(props);
 
@@ -30,6 +34,7 @@ const getPicture = pic => {
     picture: ""
 
 });
+
 const history = useHistory();
 
 const handleInputChange = event => {
@@ -43,13 +48,19 @@ const handleInputChange = event => {
 
 const handleFormSubmit = event => {
   event.preventDefault();
-  console.log(userState);
+  // console.log(userState);
   
   API.createUser(userState)
-  .then(res => {
-      console.log(res.data);
 
-      if(res.data){
+ 
+
+  
+  .then(res => {
+      console.log(res.data.email);
+    
+      
+
+     if(res.data){
           props.submitHandler(res.data)
           setUserState({
             first_name: "",
@@ -61,9 +72,11 @@ const handleFormSubmit = event => {
           history.push("/profile");
       } 
       else {
+        showAlert()
           props.submitHandler(false)
+
         
-          history.push("/signup");
+          // history.push("/signup");
       }
       
   })
