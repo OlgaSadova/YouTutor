@@ -15,12 +15,7 @@ export default function ProfileCard(props) {
                 .then(res => {
 
                   const skillsArr = res.data.map(element => element.skill)
-
-
                   setTeacherArray(skillsArr)
-
-                
-                  
               })
               .catch(err => {
                 console.log(err);
@@ -50,57 +45,8 @@ export default function ProfileCard(props) {
 </div>
 
 
-{props.userdata.Studentpost ?
-<div className="card">
-<div className="card-image">
-  
 </div>
-<div className="card-content">
-  <div className="media">
-    
-    <div >
-    <p className="title is-4">Your Student Post</p>
 
-      <p className="title is-4">About: {props.userdata.Studentpost.about}</p>
-      <p className="title is-4">SKILLS:</p>
-      <ul>
-        {props.userdata.StudentSkills.map(element => <li> {element.skill}</li>  )}
-      </ul>
-      
-
-    </div>
-  </div>
-
-  
-</div>
-</div>
-:""}
-
-{props.userdata.Teacher ?
-<div className="card">
-<div className="card-image">
-  
-</div>
-<div className="card-content">
-  <div className="media">
-    
-    <div >
-    <p className="title is-4">Your Teacher Post</p>
-
-      <p className="title is-4">About: {props.userdata.Teacher.about}</p>
-      <p className="title is-4">SKILLS:</p>
-      <ul>
-        {props.userdata.TeacherSkills.map(element => <li> {element.skill}</li>  )}
-      </ul>
-
-    </div>
-  </div>
-
-  
-</div>
-</div>
-:""}
-</div>
 
     )
     }

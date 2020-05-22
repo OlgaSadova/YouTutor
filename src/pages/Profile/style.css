@@ -15,12 +15,27 @@ h3{
 }
 
 .studentbox{
-    background-color: rgb(255, 226, 220);
-    border: 1px solid red;
+    border: 1px solid blue;
+    margin-top: 10px;
+    align-items: center;
+    width: 90%;
+   
 }
 
 
 .teacherbox{
-    background-color: rgb(224, 255, 245);
-    border: 1px solid green;
+   
+    border: 1px solid red;
+    margin-top: 10px;
+    align-items: center;
+    width: 90%;
+
+    
+}
+
+.tutor-button{
+    margin-top: 10px;
+    width: 90%;
+   
+
 }
