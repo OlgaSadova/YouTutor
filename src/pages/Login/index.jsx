@@ -33,14 +33,10 @@ export default function Login(props) {
             res.data.TeacherSkills.forEach((element) => {
               teacherSkillsArray.push(element.skill);
             });
-            console.log(teacherSkillsArray);
-            console.log(res.data.TeacherSkills);
+          
             API.getStudentMatch({ skills: teacherSkillsArray.join(",") })
               .then((newUser) => {
-                console.log(
-                  "MATCH RESULT TUDENT SKILLS FOR STUDENTS: ",
-                  newUser.data
-                );
+
                 props.passStudents(newUser.data);
               })
               .catch((err) => {
@@ -48,19 +44,14 @@ export default function Login(props) {
               });
             }
             if(res.data.StudentSkills){
-              console.log("Find Student post skills This is the data:");
               const studentSkillsArray = [];
               res.data.TeacherSkills.forEach((element) => {
                 studentSkillsArray.push(element.skill);
               });
-              console.log(studentSkillsArray);
-              console.log(res.data.TeacherSkills);
+           
               API.getTeacherMatch({ skills: studentSkillsArray.join(",") })
                 .then((newUser) => {
-                  console.log(
-                    "MATCH RESULT TUDENT SKILLS FOR STUDENTS: ",
-                    newUser.data
-                  );
+               
                   props.passTeachers(newUser.data);
                 })
                 .catch((err) => {
@@ -123,7 +114,6 @@ export default function Login(props) {
           <button className="button is-link is-light">
             <Link to="/">Cancel</Link>
           </button>
-          <button onClick={handleSessionBtnClick}>check login status</button>
         </div>
       </div>
     </div>

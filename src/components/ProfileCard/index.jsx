@@ -8,9 +8,6 @@ export default function ProfileCard(props) {
     const [teacherSkillsArray, setTeacherArray] = useState([]);
     
     useEffect(() => {
-    // if(props.userdata.Teacher){
-    // console.log(props.userdata.Teacher);
-    
       API.getTeacherSkills(props.userdata.id)
                 .then(res => {
 
@@ -25,7 +22,7 @@ export default function ProfileCard(props) {
           }, [])
     return (
       <div>
-        <div className="card">
+        <div className="box id-box">
   <div className="card-image">
     <figure className="image is-4by3">
       <img src={props.userdata.picture} alt="Placeholder image"/>
@@ -35,8 +32,8 @@ export default function ProfileCard(props) {
     <div className="media">
       
       <div >
-    <p className="title is-4">{props.userdata.first_name} {props.userdata.last_name}</p>
-        <p className="title is-4">{props.userdata.email}</p>
+      <p className="title is-5 center-content">Welcome {props.userdata.first_name}</p>
+      <p className="title is-7 left-content"> We have <span classNane = "student-color">{props.studentsearch ? props.studentsearch.length : "some"}</span> students available for you and <span classNane = "teacher-color">{props.teachersearch ? props.teachersearch.length : "some"}</span> teachers.</p>
 
       </div>
     </div>
