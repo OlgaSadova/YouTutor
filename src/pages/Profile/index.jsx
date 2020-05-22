@@ -55,7 +55,7 @@ const tutor = tutors[i];
     );
   }
 
-    return (
+     return (
         <div classNameName="ProfilePage">
             <ProfileCard userdata={User} />
             {/* <TeacherCard teacherdata= {teacherAdd}/> */}
@@ -83,7 +83,7 @@ const tutor = tutors[i];
                                         <p>
                                             <strong>{userInfo.studentResults ? userInfo.studentResults[0].User.first_name + " " + userInfo.studentResults[0].User.last_name : ""}</strong> <small>he asks for help on {userInfo.postDate}</small>
                                             <br />
-                                            You have  <strong>{Math.floor(userInfo.percentage)}%</strong> of the skill he is looking for
+                                            You have  <strong>{Math.floor(userInfo.percentage)}%</strong> of the skill he is looking for.
                                             <br />
                                             Email: {userInfo.studentResults[0].User.email}
                                             we can also put his skills
