@@ -42,35 +42,35 @@ export default function Navbar(props) {
   <div id="navbarBasicExample" className="navbar-menu">
     <div className="navbar-start">
       <Link className="navbar-item" to ='/' >Home</Link>
-      {/* onClick="showMe" */}
-      {/* <Link to ='/'>Home</Link> */}
-      {/* </a> */}
+     
 <div className="navbar-item" >
-      <a  href="/about">
-        About
+      <a  href="/Profile">
+        Profile
       </a>
       </div>
-      {/* <div className="navbar-item has-dropdown is-hoverable">
+      <div className="navbar-item has-dropdown is-hoverable">
         <a className="navbar-link">
           More
         </a>
 
         <div className="navbar-dropdown">
-          <a className="navbar-item">
-            About
-          </a>
-          <a className="navbar-item">
-            Jobs
-          </a>
-          <a className="navbar-item">
-            Contact
-          </a>
+        <Link className="navbar-item" to= "/profile">
+            Profile
+          </Link>
+    
+          <Link className="navbar-item" to="/newpost">
+            Create Post Looking for a Teacher!
+          </Link>
+         
+          <Link className="navbar-item" to="/newTeacherPost">
+            Create a Teacher Post
+          </Link>
           <hr className="navbar-divider"/>
           <a className="navbar-item">
             Report an issue
           </a>
         </div>
-      </div> */}
+      </div>
 
     </div>
 
@@ -78,10 +78,10 @@ export default function Navbar(props) {
       <div className="navbar-item">
         <div className="buttons" >
         {/* onClick={hideMe} */}
-        {!props.currentUser? <Link className="button is-primary" style={styles}   to ='/signup'><strong>Sign up</strong></Link> :""}
+        {!props.currentUser? <Link className="button is-primary"  to ='/signup'><strong>Sign up</strong></Link> :""}
           
 
-        {!props.currentUser? <Link className="button is-light" style={styles}  onClick={hideMe} to ='/login'>Log In</Link> :""}
+        {!props.currentUser? <Link className="button is-light" to ='/login'>Log In</Link> :""}
 
         {props.currentUser? <button className="button is-light" onClick = {handleLogoutClick} >Log Out</button> :""}
 
