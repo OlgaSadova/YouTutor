@@ -55,10 +55,13 @@ const tutor = tutors[i];
     );
   }
 
+<<<<<<< HEAD
   
 
 
     // const teacherAdd = props.currentUser.Teachers
+=======
+>>>>>>> c94f31d47e9b75b0e6ce5279c37f91325d07e78f
     return (
         <div classNameName="ProfilePage">
             <ProfileCard userdata={User} />
